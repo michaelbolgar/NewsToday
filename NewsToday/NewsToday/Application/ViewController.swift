@@ -8,18 +8,39 @@ class ViewController: UIViewController {
                                   font: UIFont.InterBold(ofSize: 20),
                                   textColor: .blackLight,
                                   numberOfLines: nil)
-    private lazy var image: UIImage = {
-        let element = UIImage()
-        ele
-        return element
-    }()
+
 
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .purpleLight
         layout()
+        topHeadlinesTest()
+//        search()
+        
     }
+    
+    private func search() {
+        NetworkManager.shared.doSearch(for: "Apple") { result in
+            switch result {
+            case .success(let search):
+                print("Results: \(search)")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    private func topHeadlinesTest() { NetworkManager.shared.fetchTopHeadlines(category: "technology") { result in
+            switch result {
+            case .success(let category):
+                print("Results: \(category)")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+    
 
     //MARK: Private Methods
     private func layout() {

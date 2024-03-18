@@ -3,19 +3,18 @@ import Foundation
 struct SearchResults: Codable {
     let status: String?
     let totalResults: Int?
-    let articles: [Articles]
+    let articles: [Article]
 }
 
-struct Articles: Codable {
+struct Article: Codable {
     let source: Source
     let author: String?
     let title: String?
     let description: String?
     let url: String?
     let urlToImage: String?
-    let publishedAt: Date?
+    let publishedAt: String?
     let content: String?
-    
 }
 
 struct Source: Codable {

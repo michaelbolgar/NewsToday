@@ -2,7 +2,7 @@ import Foundation
 
 struct API {
     static let scheme = "https"
-    static let host = "newsapi.org/v2/"
+    static let host = "newsapi.org"
     static let apiKey = Token.first
 }
 
