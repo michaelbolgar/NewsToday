@@ -8,6 +8,11 @@ class ViewController: UIViewController {
                                   font: UIFont.InterBold(ofSize: 20),
                                   textColor: .blackLight,
                                   numberOfLines: nil)
+    private lazy var image: UIImage = {
+        let element = UIImage()
+        ele
+        return element
+    }()
 
     // MARK: Life Cycle
     override func viewDidLoad() {
