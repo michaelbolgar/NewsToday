@@ -10,6 +10,7 @@ extension UILabel {
         label.numberOfLines = numberOfLines ?? 0
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
