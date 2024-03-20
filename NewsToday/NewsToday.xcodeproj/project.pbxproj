@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5174DD2F2BAAA58100D4A660 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174DD2E2BAAA58100D4A660 /* MyCollectionViewCell.swift */; };
 		F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366132BA741CE00751B4A /* AppDelegate.swift */; };
 		F48366162BA741CE00751B4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366152BA741CE00751B4A /* SceneDelegate.swift */; };
 		F48366182BA741CE00751B4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366172BA741CE00751B4A /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5174DD2E2BAAA58100D4A660 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F48366102BA741CE00751B4A /* NewsToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48366132BA741CE00751B4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F48366152BA741CE00751B4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				F48366802BA76C9000751B4A /* OnboardingVC.swift */,
+				5174DD2E2BAAA58100D4A660 /* MyCollectionViewCell.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 			files = (
 				F483666F2BA76AB500751B4A /* BookmarksViewController.swift in Sources */,
 				F48366182BA741CE00751B4A /* ViewController.swift in Sources */,
+				5174DD2F2BAAA58100D4A660 /* MyCollectionViewCell.swift in Sources */,
 				F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */,
 				F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */,
 				F48366672BA769F400751B4A /* CategoriesPresenter.swift in Sources */,
