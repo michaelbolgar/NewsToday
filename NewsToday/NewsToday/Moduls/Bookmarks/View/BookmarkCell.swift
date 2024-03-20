@@ -10,15 +10,24 @@ import UIKit
 class BookmarkCell: UITableViewCell {
     static let reuseID = "BookmarkCell"
     
+    #warning("тут тоже хочется видеть разметку по markdown")
     private let bookmarkImage: UIImageView = {
            let image = UIImageView()
            image.layer.cornerRadius = 12
            image.image = UIImage(systemName: "questionmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25))?.withTintColor(.black, renderingMode: .alwaysOriginal)
            return image
-       }()
-    private let categoryLabel = UILabel.makeLabel(font: UIFont.InterRegular(ofSize: 14), textColor: UIColor.greyPrimary, numberOfLines: 1)
-    private let mainLabel = UILabel.makeLabel(font: UIFont.InterBold(ofSize: 16), textColor: UIColor.blackPrimary, numberOfLines: 0)
-    
+    }()
+
+    private let categoryLabel = UILabel.makeLabel(font: UIFont.InterRegular(ofSize: 14), 
+                                                  textColor: UIColor.greyPrimary,
+                                                  numberOfLines: 1)
+
+    private let mainLabel = UILabel.makeLabel(font: UIFont.InterBold(ofSize: 16),
+                                              textColor: UIColor.blackPrimary,
+                                              numberOfLines: 0)
+
+    //markdown
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -28,6 +37,8 @@ class BookmarkCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //markdown
+
     func set(info: Bookmarks) {
     //    bookmarkImage.image = info.bookmarkImage
         categoryLabel.text = info.categoryLabel
@@ -35,10 +46,12 @@ class BookmarkCell: UITableViewCell {
     }
 
     private func configure() {
+        //можно сократить по образцу как в ViewController'e
         addSubview(bookmarkImage)
         addSubview(categoryLabel)
         addSubview(mainLabel)
         
+        //та же рекомендация что и в ViewController'e
         bookmarkImage.snp.makeConstraints { make in
             make.width.height.equalTo(96)
             make.top.leading.equalToSuperview()

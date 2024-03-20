@@ -8,19 +8,27 @@
 import UIKit
 
 class EmptyView: UIView {
-    let messageLabel = UILabel.makeLabel(text: "You haven't saved any articles yet. Start reading and bookmarking them now", font: UIFont.InterRegular(ofSize: 16), textColor: UIColor.blackPrimary, numberOfLines: 0)
+
+    #warning("markdown")
+    let messageLabel = UILabel.makeLabel(text: "You haven't saved any articles yet. Start reading and bookmarking                                   them now",
+                                         font: UIFont.InterRegular(ofSize: 16),
+                                         textColor: UIColor.blackPrimary,
+                                         numberOfLines: 0)
+    
     let greyImageView: UIImageView = {
             let imageView = UIImageView()
             imageView.image = UIImage(named: "ellipse")
             return imageView
         }()
 
+    #warning("а куда код уехал?)")
         let bookImageView: UIImageView = {
             let imageView = UIImageView()
             imageView.image = UIImage(named: "emptyStatePic")
             return imageView
         }()
 
+    //markdown
         override init(frame: CGRect) {
             super.init(frame: frame)
             setupViews()
@@ -31,6 +39,7 @@ class EmptyView: UIView {
         }
 
         private func setupViews() {
+            //рекомендации аналогично двум другим файлам
             addSubview(messageLabel)
             addSubview(greyImageView)
             greyImageView.addSubview(bookImageView)

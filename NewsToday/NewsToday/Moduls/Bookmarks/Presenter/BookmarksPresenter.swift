@@ -26,15 +26,20 @@ final class BookmarksPresenter: BookmarksPresenterProtocol {
     
     
     func viewDidLoad() {
-        bookmarks = [Bookmarks(bookmarkImage: nil, categoryLabel: "UI/UX Design", textLabel: "A Simple Trick For Creating Color Palettes Quickly"),
-                     Bookmarks(bookmarkImage: nil, categoryLabel: "UI/UX Design", textLabel: "A Simple Trick For Creating Color Palettes Quickly")
+        bookmarks = [Bookmarks(bookmarkImage: nil, 
+                               categoryLabel: "UI/UX Design",
+                               textLabel: "A Simple Trick For Creating Color Palettes Quickly"),
+                     
+                     Bookmarks(bookmarkImage: nil, 
+                               categoryLabel: "UI/UX Design",
+                               textLabel: "A Simple Trick For Creating Color Palettes Quickly")
         ]
         
         bookmarksViewControllerProtocol?.reloadTableView()
     }
-    
+
     func didEditingDelete(at indexPath: IndexPath) {
         bookmarks.remove(at: indexPath.row)
         bookmarksViewControllerProtocol?.reloadTableView()
-}
+    }
 }

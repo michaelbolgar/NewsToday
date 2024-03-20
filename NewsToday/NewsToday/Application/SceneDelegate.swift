@@ -8,7 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        let navBar = UINavigationController(rootViewController: ViewController())
+        let navBar = UINavigationController(rootViewController: BookmarksViewController())
         self.window = window
         window.rootViewController = navBar
         window.makeKeyAndVisible()

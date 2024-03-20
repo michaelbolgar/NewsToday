@@ -12,8 +12,18 @@ final class BookmarksViewController: UIViewController, BookmarksViewControllerPr
 
     //MARK: - UI Components
     private let tableView = UITableView()
-    private let titleLabelBig = UILabel.makeLabel(text: "Bookmarks", font: UIFont.InterSemiBold(ofSize: 24), textColor: UIColor.blackPrimary, numberOfLines: 1)
-    private let titleLabelSmall = UILabel.makeLabel(text: "Saved articles to the library", font: UIFont.InterRegular(ofSize: 16), textColor: UIColor.greyPrimary, numberOfLines: 1)
+
+    //немного поправил переносы, чтобы легче читалось. Идея в том, что нам желательно иметь одинаковый стиль оформления во всём проекте, поэтому я буду поправлять стиль
+    private let titleLabelBig = UILabel.makeLabel(text: "Bookmarks",
+                                                  font: UIFont.InterSemiBold(ofSize: 24),
+                                                  textColor: UIColor.blackPrimary,
+                                                  numberOfLines: 1)
+
+    private let titleLabelSmall = UILabel.makeLabel(text: "Saved articles to the library", 
+                                                    font: UIFont.InterRegular(ofSize: 16),
+                                                    textColor: UIColor.greyPrimary,
+                                                    numberOfLines: 1)
+
     private let emptyView = EmptyView()
     
     //MARK: - Life cycle
@@ -24,8 +34,9 @@ final class BookmarksViewController: UIViewController, BookmarksViewControllerPr
         presenter.viewDidLoad()
         configureTableView()
         setupConstraints()
+
+        //эту строку хочется куда-то убрать. Чем меньше кода во viewDidLoad(), тем лучше, ну и пусть это будут в основном функции
         emptyView.isHidden = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +58,14 @@ final class BookmarksViewController: UIViewController, BookmarksViewControllerPr
     }
 
     func setupConstraints() {
+
+    #warning("конечную установку UI лучше разбивать на две функции, для разделения ответственности:")
+        // 1)  setViews() с добавлением view
+        // 2)  setupConstraints() для установки констрейнтов. И эту функцию с констрейнтами можно сразу уносить вниз документа, например в отдельный extension, потому что мы их устанавливаем один раз и больше не позвращаемся к ним -> они не нужны нам на виду
+
+
+        #warning("эти четыре строки можно красиво упаковать с помощью перебора:")
+        //[titleLabelBig, titleLabelSmall, ...].forEach {view.addSubview($0) }
         view.addSubview(titleLabelBig)
         view.addSubview(titleLabelSmall)
         view.addSubview(tableView)
