@@ -13,7 +13,6 @@ final class BookmarksViewController: UIViewController, BookmarksViewControllerPr
     //MARK: - UI Components
     private let tableView = UITableView()
 
-    //немного поправил переносы, чтобы легче читалось. Идея в том, что нам желательно иметь одинаковый стиль оформления во всём проекте, поэтому я буду поправлять стиль
     private let titleLabelBig = UILabel.makeLabel(text: "Bookmarks",
                                                   font: UIFont.InterSemiBold(ofSize: 24),
                                                   textColor: UIColor.blackPrimary,
@@ -33,15 +32,14 @@ final class BookmarksViewController: UIViewController, BookmarksViewControllerPr
         presenter = BookmarksPresenter(bookmarksViewControllerProtocol: self)
         presenter.viewDidLoad()
         configureTableView()
-        setupConstraints()
-
-        //эту строку хочется куда-то убрать. Чем меньше кода во viewDidLoad(), тем лучше, ну и пусть это будут в основном функции
-        emptyView.isHidden = true
+        setupViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true) // shows animation instead of just hiding navbar
+        setupConstraints()
+        emptyView.isHidden = true
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     //MARK: - Public Methods
     
@@ -56,40 +54,9 @@ final class BookmarksViewController: UIViewController, BookmarksViewControllerPr
         tableView.dataSource = self
         tableView.register(BookmarkCell.self, forCellReuseIdentifier: BookmarkCell.reuseID)
     }
-
-    func setupConstraints() {
-
-    #warning("конечную установку UI лучше разбивать на две функции, для разделения ответственности:")
-        // 1)  setViews() с добавлением view
-        // 2)  setupConstraints() для установки констрейнтов. И эту функцию с констрейнтами можно сразу уносить вниз документа, например в отдельный extension, потому что мы их устанавливаем один раз и больше не позвращаемся к ним -> они не нужны нам на виду
-
-
-        #warning("эти четыре строки можно красиво упаковать с помощью перебора:")
-        //[titleLabelBig, titleLabelSmall, ...].forEach {view.addSubview($0) }
-        view.addSubview(titleLabelBig)
-        view.addSubview(titleLabelSmall)
-        view.addSubview(tableView)
-        view.addSubview(emptyView)
-   
-        
-        titleLabelBig.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(72)
-        }
-        titleLabelSmall.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(112)
-        }
-        
-        tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(168)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-        }
-        
-        emptyView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+    
+    func setupViews() {
+        [titleLabelBig, titleLabelSmall, tableView, emptyView].forEach {view.addSubview($0) }
     }
 }
 
@@ -118,6 +85,31 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             presenter.didEditingDelete(at: indexPath)
+        }
+    }
+
+}
+
+
+extension BookmarksViewController {
+    func setupConstraints() {
+            titleLabelBig.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(72)
+        }
+        titleLabelSmall.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(112)
+        }
+
+        tableView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(168)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+
+        emptyView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 }

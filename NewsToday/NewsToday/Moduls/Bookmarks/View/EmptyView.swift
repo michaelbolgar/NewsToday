@@ -9,29 +9,29 @@ import UIKit
 
 class EmptyView: UIView {
 
-    #warning("markdown")
+    //MARK: - UI Components
     let messageLabel = UILabel.makeLabel(text: "You haven't saved any articles yet. Start reading and bookmarking                                   them now",
                                          font: UIFont.InterRegular(ofSize: 16),
                                          textColor: UIColor.blackPrimary,
                                          numberOfLines: 0)
     
     let greyImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "ellipse")
-            return imageView
+    let imageView = UIImageView()
+    imageView.image = UIImage(named: "Ellipse")
+    return imageView
         }()
 
-    #warning("а куда код уехал?)")
-        let bookImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "emptyStatePic")
-            return imageView
+    let bookImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.image = UIImage(named: "emptyStatePic")
+    return imageView
         }()
 
-    //markdown
+    // MARK: - Initializer
         override init(frame: CGRect) {
             super.init(frame: frame)
             setupViews()
+            setupConstraints()
         }
 
         required init?(coder: NSCoder) {
@@ -39,24 +39,27 @@ class EmptyView: UIView {
         }
 
         private func setupViews() {
-            //рекомендации аналогично двум другим файлам
-            addSubview(messageLabel)
-            addSubview(greyImageView)
+            [messageLabel, greyImageView].forEach { addSubview($0) }
             greyImageView.addSubview(bookImageView)
-
-            messageLabel.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(418)
-                make.leading.trailing.equalToSuperview().inset(60)
-            }
-
-            greyImageView.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(322)
-                make.centerX.equalToSuperview()
-            }
-
-            bookImageView.snp.makeConstraints { make in
-                make.centerX.equalToSuperview()
-                make.centerY.equalToSuperview()
-            }
         }
     }
+
+
+extension EmptyView {
+    func setupConstraints() {
+        messageLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(418)
+            make.leading.trailing.equalToSuperview().inset(60)
+        }
+
+        greyImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(322)
+            make.centerX.equalToSuperview()
+        }
+
+        bookImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+    }
+}
