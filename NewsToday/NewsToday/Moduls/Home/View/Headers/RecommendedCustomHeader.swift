@@ -9,6 +9,8 @@ import UIKit
 
 final class RecommendedCustomHeader: UICollectionReusableView {
     
+    #warning("нужно проставить разметку по markdown")
+
     static var reuseIdentifier: String {"\(Self.self)"}
     
     private let titleLabel = UILabel.makeLabel(text: "Recommended for you",

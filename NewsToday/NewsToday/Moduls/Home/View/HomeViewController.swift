@@ -9,7 +9,9 @@ final class HomeViewController: UIViewController {
 
     //MARK: - Presenter
     var presenter: HomePresenterProtocol!
-    
+
+    #warning("нужно проставить разметку по markdown")
+
     private lazy var collectionView: UICollectionView = {
         let layout = self.createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -41,6 +43,7 @@ final class HomeViewController: UIViewController {
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecommendedCustomHeader.reuseIdentifier)
     }
     
+    //надо будет потом перенести эту функцию в extension, чтобы можно было вызывать на разных экранах
     private func activateKeyboardRemoval() {
         let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
