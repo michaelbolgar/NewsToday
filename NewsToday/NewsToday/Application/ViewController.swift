@@ -15,8 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .purpleLight
         layout()
-        topHeadlinesTest()
-//        search()
+//        topHeadlinesTest()
+        search()
         
     }
     
