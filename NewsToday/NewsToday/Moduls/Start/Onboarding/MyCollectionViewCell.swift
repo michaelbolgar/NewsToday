@@ -9,7 +9,9 @@ import UIKit
 
 final class myCollectionViewCell: UICollectionViewCell {
     static let id = "MyCollectionViewCell"
-    
+
+    #warning("тут тоже можно бы сделать разметку по markdown")
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +24,7 @@ final class myCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        #warning("а почему тут внезапно на анкерах?")
         contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),

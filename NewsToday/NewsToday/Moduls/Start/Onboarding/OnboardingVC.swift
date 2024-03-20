@@ -40,17 +40,16 @@ final class OnboardingViewController: UIViewController {
         return pageControl
     }()
     
-    private let onboardingLabel = UILabel.makeLabel(
-        text: "First to know",
-        font: UIFont.InterBold(ofSize: 20),
-        textColor: UIColor.blackLight,
-        numberOfLines: nil)
+    private let onboardingLabel = UILabel.makeLabel(text: "First to know",
+                                                    font: UIFont.InterBold(ofSize: 20),
+                                                    textColor: UIColor.blackLight,
+                                                    numberOfLines: nil)
     
-    private let onboardingInfoLabel = UILabel.makeLabel(
-        text: "All news in one place, be the first to know last news",
-        font: UIFont.InterRegular(ofSize: 15),
-        textColor: UIColor.greyDark,
-        numberOfLines: 2)
+    private let onboardingInfoLabel = UILabel.makeLabel(text:
+                                                            "All news in one place, be the first to know last news",
+                                                        font: UIFont.InterRegular(ofSize: 15),
+                                                        textColor: UIColor.greyDark,
+                                                        numberOfLines: 2)
     
     private let nextButton: UIButton = {
         let element = UIButton(type: .system)
@@ -65,6 +64,8 @@ final class OnboardingViewController: UIViewController {
     }()
     
     // MARK: - Private Properties
+
+    #warning("приватные проперти обычно идут перед UI элементами")
 
     private let images = ["1.jpg", "2.jpg", "3.jpg"]
     
@@ -92,19 +93,26 @@ final class OnboardingViewController: UIViewController {
     private func layout() {
         
         view.backgroundColor = .white
+
+        #warning("эти пять одинаковых строк можно заменить одним массивом с перебором")
+        [collectionView, pageControl, onboardingLabel, onboardingInfoLabel, nextButton].forEach { view.addSubview($0) }
+//        view.addSubview(collectionView)
+//        view.addSubview(pageControl)
+//        view.addSubview(onboardingLabel)
+//        view.addSubview(onboardingInfoLabel)
+//        view.addSubview(nextButton)
         
-        view.addSubview(collectionView)
-        view.addSubview(pageControl)
-        view.addSubview(onboardingLabel)
-        view.addSubview(onboardingInfoLabel)
-        view.addSubview(nextButton)
-        
+        #warning("эти две строки можно унести в замыкание самой коллекции")
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        #warning("настройка pageControl тоже может уйти в замыкание")
         pageControl.numberOfPages = images.count
+
         onboardingInfoLabel.textAlignment = .center
-        
+
+        #warning("лучше разнести добавление элементов на экран и установку констрейнтов на две функции: setViews и setupConstraints - так будет соблюдён принцип единой ответственности. setupConstraints можно потом сразу унести вниз документа, например в отдельный extension - этот код пишется один раз и больше не используется, соответственно не нужен посреди документа")
+
         // MARK: - Setup Constraints
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(20) // Adjust as needed
@@ -113,6 +121,7 @@ final class OnboardingViewController: UIViewController {
             make.centerX.equalToSuperview()// Adjust as needed
         }
         
+        //а зачем во второй раз сетить кол-во страниц?
         pageControl.numberOfPages = images.count // Set the total number of pages
         pageControl.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
