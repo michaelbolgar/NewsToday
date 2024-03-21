@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B695B1C62BAB29EC00BE49CA /* UIStackView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1C52BAB29EC00BE49CA /* UIStackView Extension.swift */; };
+		B695B1C92BAB328400BE49CA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B695B1C82BAB328400BE49CA /* SnapKit */; };
+		B695B1CB2BAC583500BE49CA /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1CA2BAC583500BE49CA /* CategoryCollectionViewCell.swift */; };
 		F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366132BA741CE00751B4A /* AppDelegate.swift */; };
 		F48366162BA741CE00751B4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366152BA741CE00751B4A /* SceneDelegate.swift */; };
 		F48366182BA741CE00751B4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366172BA741CE00751B4A /* ViewController.swift */; };
@@ -19,7 +22,6 @@
 		F48366362BA74DE400751B4A /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F48366322BA74DE400751B4A /* Inter-Medium.ttf */; };
 		F48366372BA74DE400751B4A /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F48366332BA74DE400751B4A /* Inter-Regular.ttf */; };
 		F48366382BA74DE400751B4A /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F48366342BA74DE400751B4A /* Inter-Bold.ttf */; };
-		F483663C2BA74FC900751B4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F483663B2BA74FC900751B4A /* SnapKit */; };
 		F48366412BA7523100751B4A /* UIView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366402BA7523100751B4A /* UIView Extension.swift */; };
 		F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366422BA752AB00751B4A /* UIViewController Extension.swift */; };
 		F48366502BA7593300751B4A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483664F2BA7593300751B4A /* API.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B695B1C52BAB29EC00BE49CA /* UIStackView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView Extension.swift"; sourceTree = "<group>"; };
+		B695B1CA2BAC583500BE49CA /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		F48366102BA741CE00751B4A /* NewsToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48366132BA741CE00751B4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F48366152BA741CE00751B4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F483663C2BA74FC900751B4A /* SnapKit in Frameworks */,
+				B695B1C92BAB328400BE49CA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +133,7 @@
 				F483662D2BA74C6C00751B4A /* UIFont Extension.swift */,
 				F48366402BA7523100751B4A /* UIView Extension.swift */,
 				F48366422BA752AB00751B4A /* UIViewController Extension.swift */,
+				B695B1C52BAB29EC00BE49CA /* UIStackView Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				F483666C2BA76A5E00751B4A /* CategoriesViewController.swift */,
+				B695B1CA2BAC583500BE49CA /* CategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -396,7 +402,7 @@
 			);
 			name = NewsToday;
 			packageProductDependencies = (
-				F483663B2BA74FC900751B4A /* SnapKit */,
+				B695B1C82BAB328400BE49CA /* SnapKit */,
 			);
 			productName = NewsToday;
 			productReference = F48366102BA741CE00751B4A /* NewsToday.app */;
@@ -427,8 +433,7 @@
 			);
 			mainGroup = F48366072BA741CE00751B4A;
 			packageReferences = (
-				F483663A2BA74FC900751B4A /* XCRemoteSwiftPackageReference "SnapKit" */,
-				F483663F2BA7504700751B4A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B695B1C72BAB328400BE49CA /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = F48366112BA741CE00751B4A /* Products */;
 			projectDirPath = "";
@@ -468,9 +473,11 @@
 				F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */,
 				F483662E2BA74C6C00751B4A /* UIFont Extension.swift in Sources */,
 				F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */,
+				B695B1C62BAB29EC00BE49CA /* UIStackView Extension.swift in Sources */,
 				F483665A2BA7691000751B4A /* HomeModel.swift in Sources */,
 				F483666D2BA76A5E00751B4A /* CategoriesViewController.swift in Sources */,
 				F48366562BA768EF00751B4A /* HomePresenter.swift in Sources */,
+				B695B1CB2BAC583500BE49CA /* CategoryCollectionViewCell.swift in Sources */,
 				F48366712BA76AE300751B4A /* ProfileViewController.swift in Sources */,
 				F48366412BA7523100751B4A /* UIView Extension.swift in Sources */,
 				F48366582BA768FA00751B4A /* HomeViewController.swift in Sources */,
@@ -710,28 +717,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F483663A2BA74FC900751B4A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		B695B1C72BAB328400BE49CA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		F483663F2BA7504700751B4A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.22.1;
+				kind = versionRange;
+				maximumVersion = 6.0.0;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F483663B2BA74FC900751B4A /* SnapKit */ = {
+		B695B1C82BAB328400BE49CA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F483663A2BA74FC900751B4A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = B695B1C72BAB328400BE49CA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
