@@ -8,10 +8,12 @@
 import UIKit
 
 final class myCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Properties
     static let id = "MyCollectionViewCell"
-
-    #warning("тут тоже можно бы сделать разметку по markdown")
-
+    
+    // MARK: - UI Elements
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,23 +22,22 @@ final class myCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 15
         return imageView
     }()
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        #warning("а почему тут внезапно на анкерах?")
         contentView.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-        ])
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     func prepare(imageName: String?) {
         guard let imageName = imageName, let image = UIImage(named: imageName) else {

@@ -3,6 +3,23 @@ import SnapKit
 
 final class OnboardingViewController: UIViewController {
     
+    // MARK: - Private&Static Properties
+
+    static let images = ["1.jpg", "2.jpg", "3.jpg"]
+    
+    private enum Const {
+        static let itemSize = CGSize(width: 300, height: 400)
+        static let itemSpacing = 24.0
+        
+        static var insetX: CGFloat {
+            (UIScreen.main.bounds.width - Self.itemSize.width) / 2.0
+        }
+        
+        static var collectionViewContentInset: UIEdgeInsets {
+            UIEdgeInsets(top: 0, left: Self.insetX, bottom: 0, right: Self.insetX)
+        }
+    }
+    
     // MARK: - UI Elements
   
     private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
@@ -28,7 +45,9 @@ final class OnboardingViewController: UIViewController {
         collectionView.contentInsetAdjustmentBehavior = .never //Отключение автоматической настройки внутренних отступов содержимого коллекции. Это позволяет предотвратить автоматическое добавление отступов для учета безопасной зоны (safe area).
         collectionView.contentInset = Const.collectionViewContentInset // Установка внутренних отступов содержимого коллекции с использованием заранее определенной константы collectionViewContentInset.
         collectionView.decelerationRate = .fast
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .clear //.purpleLighter
+        collectionView.dataSource = self
+        collectionView.delegate = self
         return collectionView
     }()
     
@@ -37,10 +56,11 @@ final class OnboardingViewController: UIViewController {
         pageControl.pageIndicatorTintColor = UIColor.greyLight
         pageControl.currentPageIndicatorTintColor = UIColor.purplePrimary
         pageControl.currentPage = 0
+        pageControl.numberOfPages = images.count
         return pageControl
     }()
     
-    private let onboardingLabel = UILabel.makeLabel(text: "First to know",
+    private let onboardingLabel = UILabel.makeLabel(text: "Read by category",
                                                     font: UIFont.InterBold(ofSize: 20),
                                                     textColor: UIColor.blackLight,
                                                     numberOfLines: nil)
@@ -60,88 +80,44 @@ final class OnboardingViewController: UIViewController {
         element.widthAnchor.constraint(equalToConstant: 320).isActive = true
         element.heightAnchor.constraint(equalToConstant: 50).isActive = true
         element.backgroundColor = UIColor.purplePrimary
+        element.addTarget(self, action: #selector(pushButtonTapped), for: .touchUpInside)
         return element
     }()
-    
-    // MARK: - Private Properties
-
-    #warning("приватные проперти обычно идут перед UI элементами")
-
-    private let images = ["1.jpg", "2.jpg", "3.jpg"]
-    
-    private enum Const {
-        static let itemSize = CGSize(width: 300, height: 400)
-        static let itemSpacing = 24.0
-        
-        static var insetX: CGFloat {
-            (UIScreen.main.bounds.width - Self.itemSize.width) / 2.0
-        }
-        
-        static var collectionViewContentInset: UIEdgeInsets {
-            UIEdgeInsets(top: 0, left: Self.insetX, bottom: 0, right: Self.insetX)
-        }
-    }
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         layout()
+        setupConstraints()
+        
     }
     
-    //MARK: Private Methods
+    // MARK: - Private Methods
+    
     private func layout() {
         
         view.backgroundColor = .white
 
-        #warning("эти пять одинаковых строк можно заменить одним массивом с перебором")
         [collectionView, pageControl, onboardingLabel, onboardingInfoLabel, nextButton].forEach { view.addSubview($0) }
-//        view.addSubview(collectionView)
-//        view.addSubview(pageControl)
-//        view.addSubview(onboardingLabel)
-//        view.addSubview(onboardingInfoLabel)
-//        view.addSubview(nextButton)
-        
-        #warning("эти две строки можно унести в замыкание самой коллекции")
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-        #warning("настройка pageControl тоже может уйти в замыкание")
-        pageControl.numberOfPages = images.count
 
         onboardingInfoLabel.textAlignment = .center
-
-        #warning("лучше разнести добавление элементов на экран и установку констрейнтов на две функции: setViews и setupConstraints - так будет соблюдён принцип единой ответственности. setupConstraints можно потом сразу унести вниз документа, например в отдельный extension - этот код пишется один раз и больше не используется, соответственно не нужен посреди документа")
-
-        // MARK: - Setup Constraints
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(20) // Adjust as needed
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(Const.itemSize.height)
-            make.centerX.equalToSuperview()// Adjust as needed
-        }
+    }
+    
+    @objc func pushButtonTapped(){
         
-        //а зачем во второй раз сетить кол-во страниц?
-        pageControl.numberOfPages = images.count // Set the total number of pages
-        pageControl.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(onboardingLabel).inset(55) // Adjust as needed
-        }
+        let nextPage = min(pageControl.currentPage + 1, OnboardingViewController.images.count - 1)
+        let targetOffsetX = CGFloat(nextPage) * (Const.itemSize.width + Const.itemSpacing) - collectionView.contentInset.left
+        collectionView.setContentOffset(CGPoint(x: targetOffsetX, y: 0), animated: true)
         
-        onboardingLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(onboardingInfoLabel).inset(75)
-            make.centerX.equalToSuperview()
-        }
-        
-        onboardingInfoLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(nextButton).inset(125)
-            make.width.equalTo(200)
-            make.centerX.equalToSuperview()
-        }
-        
-        nextButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(25)
+        switch onboardingLabel.text {
+        case "Read by category":
+            onboardingLabel.text = "Select your favorite topics"
+        case "Select your favorite topics":
+            onboardingLabel.text = "Save articles to your library"
+            nextButton.setTitle("Get Started", for: .normal)
+        default:
+            break
         }
     }
 }
@@ -150,16 +126,18 @@ final class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        OnboardingViewController.images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionViewCell", for: indexPath) as! myCollectionViewCell
 
-        cell.prepare(imageName: images[indexPath.item])
+        cell.prepare(imageName: OnboardingViewController.images[indexPath.item])
         return cell
     }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewWillEndDragging(
@@ -179,7 +157,41 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
 extension OnboardingViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x / collectionView.frame.width)
-                pageControl.currentPage = Int(pageIndex)
+        pageControl.currentPage = Int(pageIndex)
+    }
+}
+
+// MARK: - Setup Constraints
+
+extension OnboardingViewController {
+    func setupConstraints() {
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(Const.itemSize.height)
+            make.centerX.equalToSuperview()
+        }
+        
+        pageControl.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(onboardingLabel).inset(55)
+        }
+        
+        onboardingLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(onboardingInfoLabel).inset(75)
+            make.centerX.equalToSuperview()
+        }
+        
+        onboardingInfoLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(nextButton).inset(125)
+            make.width.equalTo(200)
+            make.centerX.equalToSuperview()
+        }
+        
+        nextButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(25)
+        }
     }
 }
 
