@@ -7,7 +7,7 @@ enum NetworkErrors: Error {
     case decodingError(Error)
     case serverError(statusCode: Int, message: String?)
     case unexpectedError
-    case apiError(statusCode: Int, message: String)
+    case apiError(ApiError)
 }
 
 struct ApiError: Codable {

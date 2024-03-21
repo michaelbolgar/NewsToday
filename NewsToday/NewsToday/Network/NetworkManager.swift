@@ -30,6 +30,7 @@ struct NetworkManager {
         
         parameters["apiKey"] = API.apiKey
         parameters["language"] = "en"
+        parameters["pageSize"] = "20"
         
         
         switch endpoint {
@@ -58,6 +59,11 @@ struct NetworkManager {
                 return
             }
             
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(.unexpectedError))
                 return
@@ -65,39 +71,15 @@ struct NetworkManager {
             
             if !(200...299).contains(httpResponse.statusCode) {
                 
-                let defaultErrorMessage = "An error occurred"
-                
-                if let data = data,
-                   let apiError = try? JSONDecoder().decode(ApiError.self, from: data),
-                    let message = apiError.message {
-                    
-                    completion(
-                        .failure(
-                            .apiError(
-                                statusCode: httpResponse.statusCode,
-                                message: message
-                            )
-                        )
-                    )
-                } else {
-                    completion(
-                        .failure(
-                        .serverError(
-                            statusCode: httpResponse.statusCode,
-                            message: defaultErrorMessage)
-                        )
-                    )
-                }
+                if let apiError = try? JSONDecoder().decode(ApiError.self, from: data) {
+                     completion(.failure(.apiError(apiError)))
+                 } else {
+                     let defaultErrorMessage = "An error occurred"
+                     completion(.failure(.serverError(statusCode: httpResponse.statusCode, message: defaultErrorMessage)))
+                 }
                 return
             }
-
-            let statusCode = httpResponse.statusCode
         
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
-            }
-            
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             
@@ -108,10 +90,11 @@ struct NetworkManager {
             } catch {
                 completion(.failure(.decodingError(error)))
             }
+            return
         }.resume()
     }
     
-    func doSearch(
+    func fetchData(
         for request: String,
         completion: @escaping(Result<SearchResults, NetworkErrors>) -> Void
     ) {
