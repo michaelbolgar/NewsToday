@@ -9,17 +9,22 @@ import UIKit
 
 final class RecommendedCustomCell: UICollectionViewCell {
     
+    //MARK: -> Properties
     static var reuseIdentifier: String {"\(Self.self)"}
     
-    private let categoryLabel = UILabel.makeLabel(text: "",
+    private let categoryLabel = UILabel.makeLabel(
+                                       text: "",
                                        font: UIFont.InterRegular(ofSize: 14),
                                        textColor: UIColor.greyPrimary,
-                                       numberOfLines: nil)
+                                       numberOfLines: nil
+                                        )
     
-    private let titleLabel = UILabel.makeLabel(text: "",
-                                       font: UIFont.InterRegular(ofSize: 16),
+    private let titleLabel = UILabel.makeLabel(
+                                       text: "",
+                                       font: UIFont.InterSemiBold(ofSize: 16),
                                        textColor: UIColor.blackPrimary,
-                                       numberOfLines: nil)
+                                       numberOfLines: nil
+                                        )
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -49,6 +54,8 @@ final class RecommendedCustomCell: UICollectionViewCell {
         return stack
     }()
 
+    //MARK: -> init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -58,6 +65,8 @@ final class RecommendedCustomCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //MARK: -> Functions
+    
     private func setupViews() {
         addSubview(horizontalStack)
         

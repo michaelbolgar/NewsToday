@@ -9,8 +9,7 @@ import UIKit
 
 final class RecommendedCustomHeader: UICollectionReusableView {
     
-    #warning("нужно проставить разметку по markdown")
-
+    //MARK: -> Properties
     static var reuseIdentifier: String {"\(Self.self)"}
     
     private let titleLabel = UILabel.makeLabel(text: "Recommended for you",
@@ -29,23 +28,29 @@ final class RecommendedCustomHeader: UICollectionReusableView {
     
     private lazy var verticalStack: UIStackView = {
         let stack = UIStackView()
-        stack.alignment = .leading
+        stack.alignment = .bottom
         stack.axis = .horizontal
+        stack.distribution = .equalSpacing
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(seeAllButton)
         return stack
     }()
     
+    //MARK: -> init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addSubview(verticalStack)
-        verticalStack.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        setViews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: -> Function
+    private func setViews() {
+        addSubview(verticalStack)
+        verticalStack.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }

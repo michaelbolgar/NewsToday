@@ -9,17 +9,22 @@ import UIKit
 
 final class PopularCustomCell: UICollectionViewCell {
     
+    //MARK: -> Properties
     static var reuseIdentifier: String {"\(Self.self)"}
     
-    private let titleLabel = UILabel.makeLabel(text: "",
-                                       font: UIFont.InterRegular(ofSize: 12),
-                                               textColor: UIColor.greyLighter,
-                                       numberOfLines: nil)
+    private let titleLabel = UILabel.makeLabel(
+                                        text: "",
+                                        font: UIFont.InterRegular(ofSize: 12),
+                                        textColor: UIColor.greyLighter,
+                                        numberOfLines: nil
+                                        )
     
-    private let textLabel = UILabel.makeLabel(text: "",
-                                       font: UIFont.InterSemiBold(ofSize: 16),
-                                       textColor:  UIColor.white,
-                                              numberOfLines: .zero)
+    private let textLabel = UILabel.makeLabel(
+                                    text: "",
+                                    font: UIFont.InterBold(ofSize: 16),
+                                    textColor:  UIColor.white,
+                                    numberOfLines: .zero
+                                    )
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -46,7 +51,8 @@ final class PopularCustomCell: UICollectionViewCell {
         stack.addArrangedSubview(textLabel)
         return stack
     }()
-
+    //MARK: -> init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -55,7 +61,8 @@ final class PopularCustomCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    //MARK: -> Functions
+    
     private func setupViews() {
         addSubview(imageView)
         imageView.addSubview(verticalStack)

@@ -9,6 +9,7 @@ import UIKit
 
 final class CategoriesCustomCell: UICollectionViewCell {
     
+    //MARK: -> Properties
     static var reuseIdentifier: String {"\(Self.self)"}
     
     private let titleButton: UIButton = {
@@ -20,6 +21,8 @@ final class CategoriesCustomCell: UICollectionViewCell {
         return button
     }()
 
+    //MARK: -> init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -29,6 +32,7 @@ final class CategoriesCustomCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //MARK: -> Functions
     private func setupViews() {
         addSubview(titleButton)
         
