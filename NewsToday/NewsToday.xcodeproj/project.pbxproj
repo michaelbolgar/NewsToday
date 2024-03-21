@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D094A2C72BAB99FC00FFEB5E /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = D094A2C62BAB99FC00FFEB5E /* SnapKit-Dynamic */; };
 		F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366132BA741CE00751B4A /* AppDelegate.swift */; };
 		F48366162BA741CE00751B4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366152BA741CE00751B4A /* SceneDelegate.swift */; };
 		F48366182BA741CE00751B4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366172BA741CE00751B4A /* ViewController.swift */; };
@@ -85,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F483663C2BA74FC900751B4A /* SnapKit in Frameworks */,
+				D094A2C72BAB99FC00FFEB5E /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +399,7 @@
 			name = NewsToday;
 			packageProductDependencies = (
 				F483663B2BA74FC900751B4A /* SnapKit */,
+				D094A2C62BAB99FC00FFEB5E /* SnapKit-Dynamic */,
 			);
 			productName = NewsToday;
 			productReference = F48366102BA741CE00751B4A /* NewsToday.app */;
@@ -729,6 +732,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D094A2C62BAB99FC00FFEB5E /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "SnapKit-Dynamic";
+		};
 		F483663B2BA74FC900751B4A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F483663A2BA74FC900751B4A /* XCRemoteSwiftPackageReference "SnapKit" */;
