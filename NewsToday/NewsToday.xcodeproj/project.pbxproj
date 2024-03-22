@@ -51,6 +51,14 @@
 		F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483667E2BA76C3300751B4A /* DetailsModel.swift */; };
 		F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366802BA76C9000751B4A /* OnboardingVC.swift */; };
 		F48366832BA76CB700751B4A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366822BA76CB700751B4A /* LoginVC.swift */; };
+		F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA62BAC816600EB1569 /* AppFactory.swift */; };
+		F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA82BAC818500EB1569 /* RootRouter.swift */; };
+		F4F78CAB2BAC876700EB1569 /* UINavigationController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */; };
+		F4F78CAE2BAC88A000EB1569 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CAD2BAC88A000EB1569 /* HomeRouter.swift */; };
+		F4F78CB12BAC89E600EB1569 /* CategoriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CB02BAC89E600EB1569 /* CategoriesRouter.swift */; };
+		F4F78CB42BAC8A0300EB1569 /* BookmarksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CB32BAC8A0300EB1569 /* BookmarksRouter.swift */; };
+		F4F78CB72BAC8A1B00EB1569 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CB62BAC8A1B00EB1569 /* ProfileRouter.swift */; };
+		F4F78CB92BAC8A9D00EB1569 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CB82BAC8A9D00EB1569 /* MainTabbarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +108,14 @@
 		F483667E2BA76C3300751B4A /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		F48366802BA76C9000751B4A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		F48366822BA76CB700751B4A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F4F78CA62BAC816600EB1569 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		F4F78CA82BAC818500EB1569 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController Extension.swift"; sourceTree = "<group>"; };
+		F4F78CAD2BAC88A000EB1569 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		F4F78CB02BAC89E600EB1569 /* CategoriesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRouter.swift; sourceTree = "<group>"; };
+		F4F78CB32BAC8A0300EB1569 /* BookmarksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRouter.swift; sourceTree = "<group>"; };
+		F4F78CB62BAC8A1B00EB1569 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		F4F78CB82BAC8A9D00EB1569 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				F483662A2BA74AAE00751B4A /* Application */,
+				F4F78CA52BAC810400EB1569 /* Components */,
 				F483664E2BA7591F00751B4A /* Network */,
 				F48366492BA7548300751B4A /* Moduls */,
 				F48366272BA749C000751B4A /* Extensions */,
@@ -171,6 +188,7 @@
 				F483662D2BA74C6C00751B4A /* UIFont Extension.swift */,
 				F48366402BA7523100751B4A /* UIView Extension.swift */,
 				F48366422BA752AB00751B4A /* UIViewController Extension.swift */,
+				F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,6 +251,7 @@
 		F48366482BA7547000751B4A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F4F78CAC2BAC889100EB1569 /* Router */,
 				F48366512BA768C100751B4A /* Model */,
 				F48366522BA768C700751B4A /* View */,
 				F48366532BA768CC00751B4A /* Presenter */,
@@ -244,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				F48366472BA7546300751B4A /* Start */,
+				F4F78CBA2BAC8AA500EB1569 /* Tabbar */,
 				F48366482BA7547000751B4A /* Home */,
 				F483664A2BA7549700751B4A /* Categories */,
 				F483664B2BA754A800751B4A /* Bookmarks */,
@@ -256,6 +276,7 @@
 		F483664A2BA7549700751B4A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				F4F78CAF2BAC89DA00EB1569 /* Router */,
 				F48366762BA76BC900751B4A /* Model */,
 				F48366682BA76A1400751B4A /* View */,
 				F483665C2BA7697100751B4A /* Presenter */,
@@ -266,6 +287,7 @@
 		F483664B2BA754A800751B4A /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
+				F4F78CB22BAC89F400EB1569 /* Router */,
 				F48366772BA76BE000751B4A /* Model */,
 				F48366692BA76A1700751B4A /* View */,
 				F483665D2BA7697800751B4A /* Presenter */,
@@ -276,6 +298,7 @@
 		F483664C2BA754BB00751B4A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F4F78CB52BAC8A1100EB1569 /* Router */,
 				F483667A2BA76BF600751B4A /* Model */,
 				F483666A2BA76A1B00751B4A /* View */,
 				F483665E2BA7697E00751B4A /* Presenter */,
@@ -430,6 +453,55 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F4F78CA52BAC810400EB1569 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F4F78CA62BAC816600EB1569 /* AppFactory.swift */,
+				F4F78CA82BAC818500EB1569 /* RootRouter.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F4F78CAC2BAC889100EB1569 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F4F78CAD2BAC88A000EB1569 /* HomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F4F78CAF2BAC89DA00EB1569 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F4F78CB02BAC89E600EB1569 /* CategoriesRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F4F78CB22BAC89F400EB1569 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F4F78CB32BAC8A0300EB1569 /* BookmarksRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F4F78CB52BAC8A1100EB1569 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F4F78CB62BAC8A1B00EB1569 /* ProfileRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F4F78CBA2BAC8AA500EB1569 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F4F78CB82BAC8A9D00EB1569 /* MainTabbarController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,10 +584,12 @@
 			files = (
 				B695B1B52BA8654F00BE49CA /* NetworkManager.swift in Sources */,
 				5D41A2F62BA9EADF00135E7D /* PopularCustomCell.swift in Sources */,
+				F4F78CB92BAC8A9D00EB1569 /* MainTabbarController.swift in Sources */,
 				F483666F2BA76AB500751B4A /* BookmarksViewController.swift in Sources */,
 				F48366182BA741CE00751B4A /* ViewController.swift in Sources */,
 				F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */,
 				F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */,
+				F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */,
 				F48366672BA769F400751B4A /* CategoriesPresenter.swift in Sources */,
 				F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */,
 				F483662E2BA74C6C00751B4A /* UIFont Extension.swift in Sources */,
@@ -532,8 +606,12 @@
 				F48366292BA749DA00751B4A /* UILabel Extension.swift in Sources */,
 				B695B1C02BAACC9E00BE49CA /* NetworkErrors.swift in Sources */,
 				5D41A2F82BA9EEA700135E7D /* RecommendedCustomCell.swift in Sources */,
+				F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */,
 				F483662C2BA74AEF00751B4A /* UIColor Extension.swift in Sources */,
 				F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */,
+				F4F78CAE2BAC88A000EB1569 /* HomeRouter.swift in Sources */,
+				F4F78CAB2BAC876700EB1569 /* UINavigationController Extension.swift in Sources */,
+				F4F78CB72BAC8A1B00EB1569 /* ProfileRouter.swift in Sources */,
 				F48366632BA769C200751B4A /* ProfilePresenter.swift in Sources */,
 				5D41A3012BAAB99600135E7D /* Section.swift in Sources */,
 				F48366502BA7593300751B4A /* API.swift in Sources */,
@@ -541,10 +619,12 @@
 				F48366752BA76BC000751B4A /* CategoriesModel.swift in Sources */,
 				5D41A2FD2BA9F72C00135E7D /* CustomHeader.swift in Sources */,
 				F483667C2BA76C0200751B4A /* ProfileModel.swift in Sources */,
+				F4F78CB42BAC8A0300EB1569 /* BookmarksRouter.swift in Sources */,
 				F48366832BA76CB700751B4A /* LoginVC.swift in Sources */,
 				F48366792BA76BEB00751B4A /* BookmarksModel.swift in Sources */,
 				F48366612BA7699100751B4A /* DetailsPresenter.swift in Sources */,
 				B695B1BA2BA879F100BE49CA /* Structs.swift in Sources */,
+				F4F78CB12BAC89E600EB1569 /* CategoriesRouter.swift in Sources */,
 				F48366732BA76B1B00751B4A /* DetailsViewController.swift in Sources */,
 				5D41A2FF2BAAB1A300135E7D /* RecommendedCustomHeader.swift in Sources */,
 			);
