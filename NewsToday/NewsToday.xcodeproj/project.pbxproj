@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B695B1B52BA8654F00BE49CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B42BA8654F00BE49CA /* NetworkManager.swift */; };
+		B695B1B72BA865B800BE49CA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B62BA865B800BE49CA /* Endpoint.swift */; };
+		B695B1BA2BA879F100BE49CA /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B92BA879F100BE49CA /* Structs.swift */; };
+		B695B1BE2BA8830700BE49CA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B695B1BD2BA8830700BE49CA /* SnapKit */; };
+		B695B1C02BAACC9E00BE49CA /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1BF2BAACC9D00BE49CA /* NetworkErrors.swift */; };
 		5D41A2F42BA9E79700135E7D /* CategoriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2F32BA9E79700135E7D /* CategoriesCustomCell.swift */; };
 		5D41A2F62BA9EADF00135E7D /* PopularCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2F52BA9EADF00135E7D /* PopularCustomCell.swift */; };
 		5D41A2F82BA9EEA700135E7D /* RecommendedCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2F72BA9EEA700135E7D /* RecommendedCustomCell.swift */; };
@@ -26,7 +31,6 @@
 		F48366362BA74DE400751B4A /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F48366322BA74DE400751B4A /* Inter-Medium.ttf */; };
 		F48366372BA74DE400751B4A /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F48366332BA74DE400751B4A /* Inter-Regular.ttf */; };
 		F48366382BA74DE400751B4A /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F48366342BA74DE400751B4A /* Inter-Bold.ttf */; };
-		F483663C2BA74FC900751B4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F483663B2BA74FC900751B4A /* SnapKit */; };
 		F48366412BA7523100751B4A /* UIView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366402BA7523100751B4A /* UIView Extension.swift */; };
 		F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366422BA752AB00751B4A /* UIViewController Extension.swift */; };
 		F48366502BA7593300751B4A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483664F2BA7593300751B4A /* API.swift */; };
@@ -50,6 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B695B1B42BA8654F00BE49CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B695B1B62BA865B800BE49CA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		B695B1B92BA879F100BE49CA /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		B695B1BF2BAACC9D00BE49CA /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		B695B1CC2BAD522100BE49CA /* APIDocumentation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APIDocumentation.md; sourceTree = "<group>"; };
 		5D41A2F32BA9E79700135E7D /* CategoriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCustomCell.swift; sourceTree = "<group>"; };
 		5D41A2F52BA9EADF00135E7D /* PopularCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCustomCell.swift; sourceTree = "<group>"; };
 		5D41A2F72BA9EEA700135E7D /* RecommendedCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCustomCell.swift; sourceTree = "<group>"; };
@@ -98,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F483663C2BA74FC900751B4A /* SnapKit in Frameworks */,
+				B695B1BE2BA8830700BE49CA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +296,12 @@
 		F483664E2BA7591F00751B4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B695B1CC2BAD522100BE49CA /* APIDocumentation.md */,
 				F483664F2BA7593300751B4A /* API.swift */,
+				B695B1B62BA865B800BE49CA /* Endpoint.swift */,
+				B695B1B42BA8654F00BE49CA /* NetworkManager.swift */,
+				B695B1B92BA879F100BE49CA /* Structs.swift */,
+				B695B1BF2BAACC9D00BE49CA /* NetworkErrors.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -433,7 +447,7 @@
 			);
 			name = NewsToday;
 			packageProductDependencies = (
-				F483663B2BA74FC900751B4A /* SnapKit */,
+				B695B1BD2BA8830700BE49CA /* SnapKit */,
 			);
 			productName = NewsToday;
 			productReference = F48366102BA741CE00751B4A /* NewsToday.app */;
@@ -464,8 +478,7 @@
 			);
 			mainGroup = F48366072BA741CE00751B4A;
 			packageReferences = (
-				F483663A2BA74FC900751B4A /* XCRemoteSwiftPackageReference "SnapKit" */,
-				F483663F2BA7504700751B4A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B695B1BC2BA8830700BE49CA /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = F48366112BA741CE00751B4A /* Products */;
 			projectDirPath = "";
@@ -497,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B695B1B52BA8654F00BE49CA /* NetworkManager.swift in Sources */,
 				5D41A2F62BA9EADF00135E7D /* PopularCustomCell.swift in Sources */,
 				F483666F2BA76AB500751B4A /* BookmarksViewController.swift in Sources */,
 				F48366182BA741CE00751B4A /* ViewController.swift in Sources */,
@@ -508,6 +522,7 @@
 				F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */,
 				5D41A2FB2BA9F11F00135E7D /* RecommendedModel.swift in Sources */,
 				F483665A2BA7691000751B4A /* HomeModel.swift in Sources */,
+				B695B1B72BA865B800BE49CA /* Endpoint.swift in Sources */,
 				5D41A2F42BA9E79700135E7D /* CategoriesCustomCell.swift in Sources */,
 				F483666D2BA76A5E00751B4A /* CategoriesViewController.swift in Sources */,
 				F48366562BA768EF00751B4A /* HomePresenter.swift in Sources */,
@@ -515,6 +530,7 @@
 				F48366412BA7523100751B4A /* UIView Extension.swift in Sources */,
 				F48366582BA768FA00751B4A /* HomeViewController.swift in Sources */,
 				F48366292BA749DA00751B4A /* UILabel Extension.swift in Sources */,
+				B695B1C02BAACC9E00BE49CA /* NetworkErrors.swift in Sources */,
 				5D41A2F82BA9EEA700135E7D /* RecommendedCustomCell.swift in Sources */,
 				F483662C2BA74AEF00751B4A /* UIColor Extension.swift in Sources */,
 				F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */,
@@ -528,6 +544,7 @@
 				F48366832BA76CB700751B4A /* LoginVC.swift in Sources */,
 				F48366792BA76BEB00751B4A /* BookmarksModel.swift in Sources */,
 				F48366612BA7699100751B4A /* DetailsPresenter.swift in Sources */,
+				B695B1BA2BA879F100BE49CA /* Structs.swift in Sources */,
 				F48366732BA76B1B00751B4A /* DetailsViewController.swift in Sources */,
 				5D41A2FF2BAAB1A300135E7D /* RecommendedCustomHeader.swift in Sources */,
 			);
@@ -754,28 +771,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F483663A2BA74FC900751B4A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		B695B1BC2BA8830700BE49CA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		F483663F2BA7504700751B4A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.22.1;
+				kind = versionRange;
+				maximumVersion = 6.0.0;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F483663B2BA74FC900751B4A /* SnapKit */ = {
+		B695B1BD2BA8830700BE49CA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F483663A2BA74FC900751B4A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = B695B1BC2BA8830700BE49CA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
