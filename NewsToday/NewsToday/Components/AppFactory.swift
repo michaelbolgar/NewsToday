@@ -23,7 +23,7 @@ protocol AppFactory: AnyObject {
     func makeTabBar(_ viewControllers: UIViewController...) -> UITabBarController
 
     func makeHomeViewController() -> UIViewController
-    func makeCategoeriesViewController() -> UIViewController
+    func makeCategoriesViewController() -> UIViewController
     func makeBookmarksViewController() -> UIViewController
     func makeProfileViewController() -> UIViewController
 
@@ -50,7 +50,7 @@ final class Factory: AppFactory {
         HomeViewController()
     }
     
-    func makeCategoeriesViewController() -> UIViewController {
+    func makeCategoriesViewController() -> UIViewController {
         CategoriesViewController()
     }
     
@@ -86,7 +86,7 @@ final class Factory: AppFactory {
         return router
     }
     
-    func makeProfileRouter() -> any BaseRouter {
+    func makeProfileRouter() -> BaseRouter {
         let navController = UINavigationController()
         navController.configureTabBarItem("person")
         let router = ProfileRouter(navigationController: navController, factory: self)

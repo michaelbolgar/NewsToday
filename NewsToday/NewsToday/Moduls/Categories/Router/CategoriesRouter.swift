@@ -11,6 +11,6 @@ final class CategoriesRouter: BaseRouter {
     }
 
     func start() {
-        navigationController.viewControllers = [factory.makeCategoeriesViewController()]
+        navigationController.viewControllers = [factory.makeCategoriesViewController()]
     }
 }
