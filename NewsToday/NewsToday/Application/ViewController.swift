@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         NetworkManager.shared.fetchData(for: "Apple") { result in
             switch result {
             case .success(let search):
-                    print("Results: \(search)")}
+                    print("Results: \(search)")
             case .failure(let error):
                 print("Error: \(error)")
             }
