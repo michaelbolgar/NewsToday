@@ -8,5 +8,4 @@ final class CategoriesViewController: UIViewController {
 
     //MARK: - Presenter
     var presenter: CategoriesPresenterProtocol!
-
 }
