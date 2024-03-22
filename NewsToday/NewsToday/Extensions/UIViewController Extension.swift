@@ -10,7 +10,7 @@ extension UIViewController {
         navigationItem.hidesBackButton = true
 
         //TODO: скастить кнопку по макету
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
+        let backButton = UIBarButtonItem(image: UIImage(named: "left-icon"), style: .plain, target: self, action: #selector(backButtonTapped))
         backButton.tintColor = .white
         navigationItem.leftBarButtonItem = backButton
     }
