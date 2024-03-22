@@ -1,5 +1,6 @@
 import Foundation
 
+// Конфигурация API и токенов доступа
 struct API {
     static let scheme = "https"
     static let host = "newsapi.org"

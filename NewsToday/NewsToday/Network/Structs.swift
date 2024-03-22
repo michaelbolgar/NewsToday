@@ -1,5 +1,6 @@
 import Foundation
 
+// Структуры для декодирования ответов API
 struct SearchResults: Codable {
     let status: String?
     let totalResults: Int?

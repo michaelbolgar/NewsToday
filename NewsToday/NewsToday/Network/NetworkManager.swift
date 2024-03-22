@@ -43,6 +43,12 @@ struct NetworkManager {
         
     }
     
+    /// Выполняет сетевой запрос и обрабатывает полученные данные.
+       /// - Parameters:
+       ///   - url: URL запроса.
+       ///   - apiKey: Ключ API для аутентификации запроса.
+       ///   - session: Сессия URLSession, используемая для выполнения запроса.
+       ///   - completion: Блок обратного вызова, который выполняется с результатом запроса.
     private func makeRequest<T: Codable>(
         for url: URL,
         apiKey: String,

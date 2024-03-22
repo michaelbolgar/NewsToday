@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         
     }
     
+    /// Отправляет запрос к API для получения данных и обрабатывает результаты.
     private func search() {
         NetworkManager.shared.fetchData(for: "Apple") { result in
             switch result {
