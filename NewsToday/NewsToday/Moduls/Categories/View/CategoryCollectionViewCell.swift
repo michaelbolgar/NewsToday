@@ -4,8 +4,8 @@ import SnapKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
-    private let titleLabel = UILabel.makeLabel(font: UIFont.InterBold(ofSize: 20),
-                                               textColor: UIColor.darkGray,
+    let titleLabel = UILabel.makeLabel(font: UIFont.InterBold(ofSize: 18),
+                                       textColor: UIColor.greyDark,
                                                numberOfLines: 0)
     // MARK: - Init
     override init(frame: CGRect) {
@@ -23,9 +23,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(titleLabel)
         contentView.layer.borderWidth = 0.5
-        contentView.layer.borderColor = UIColor.lightGray.cgColor
-        contentView.layer.cornerRadius = 12
+        contentView.layer.borderColor = UIColor.greyLight.cgColor
+        contentView.layer.cornerRadius = 15
         layer.masksToBounds = true
+        backgroundColor = UIColor.greyLighter
         titleLabel.textAlignment = .center
         
     }
