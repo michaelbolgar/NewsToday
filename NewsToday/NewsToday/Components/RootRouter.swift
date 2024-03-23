@@ -14,7 +14,15 @@ final class RootRouter {
 
         //insert here code for dark/light mode if needed
 
-        window?.rootViewController = showMainTabbar()
+//        if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
+        if (3 != 2) {
+            // Если приложение открывается впервые, отображаем OnboardingViewController
+            window?.rootViewController = showOnboarding()
+        } else {
+            // Если приложение уже открывалось, отображаем HomeViewController
+            window?.rootViewController = showMainTabbar()
+        }
+
         window?.makeKeyAndVisible()
 
     }
@@ -26,5 +34,9 @@ final class RootRouter {
             factory.makeBookmarksRouter().navigationController ?? UINavigationController(),
             factory.makeProfileRouter().navigationController ?? UINavigationController()
         )
+    }
+
+    func showOnboarding() -> UIViewController {
+        return factory.makeOnboardingViewController()
     }
 }
