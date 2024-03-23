@@ -64,7 +64,7 @@ final class Factory: AppFactory {
     
     func makeHomeRouter() -> BaseRouter {
         let navController = UINavigationController()
-        navController.configureTabBarItem("house")
+        navController.configureTabBarItem("home")
         let router = HomeRouter(navigationController: navController, factory: self)
         router.start()
         return router
@@ -72,7 +72,7 @@ final class Factory: AppFactory {
     
     func makeCategoriesRouter() -> BaseRouter {
         let navController = UINavigationController()
-        navController.configureTabBarItem("square.split.2x2")
+        navController.configureTabBarItem("categories")
         let router = CategoriesRouter(navigationController: navController, factory: self)
         router.start()
         return router
@@ -80,7 +80,7 @@ final class Factory: AppFactory {
     
     func makeBookmarksRouter() -> BaseRouter {
         let navController = UINavigationController()
-        navController.configureTabBarItem("bookmark")
+        navController.configureTabBarItem("bookmarks")
         let router = BookmarksRouter(navigationController: navController, factory: self)
         router.start()
         return router
@@ -88,7 +88,7 @@ final class Factory: AppFactory {
     
     func makeProfileRouter() -> BaseRouter {
         let navController = UINavigationController()
-        navController.configureTabBarItem("person")
+        navController.configureTabBarItem("profile")
         let router = ProfileRouter(navigationController: navController, factory: self)
         router.start()
         return router
