@@ -4,7 +4,7 @@ import SnapKit
 final class OnboardingViewController: UIViewController {
     
     // MARK: - Private&Static Properties
-
+    
     static let images = ["1.jpg", "2.jpg", "3.jpg"]
     
     private enum Const {
