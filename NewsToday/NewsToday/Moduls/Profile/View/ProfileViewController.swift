@@ -4,6 +4,29 @@ protocol ProfileViewControllerProtocol: AnyObject {
 
 }
 
+#warning("исправить следующие моменты:")
+/*
+
+1. присвоение цвета осуществляется через extension (см.папку Extensions), там есть цвет .greyLighter, который можно использовать по всему проекту. Таким образом, не надо будет постоянно писать цвет по rgb в коде + можно будет поменять этот цвет в два касания
+
+ 2. тексты кнопок должны быть реализованы через .makeLabel, не UITextView. Сейчас пользователь может стереть этот текст из кнопок
+
+ 3. картинки (стрелки, log out) лучше добавить в ассеты и вытягивать по имени. Это тоже обеспечит простой доступ и возможность легко изменить картинку по всему проекту
+
+ 4. добавление элементов на экран и констрейнты лучше разнести по разным функциям, например setupView() и setupConstraints(). Это будет соответствовать принципу разделения ответственности по SOLID
+
+ 5. большое количество элементов можно добавить на экран с помощью массива этих самых элементов и перебора, например: [label, label, view].forEach { view.addSubview($0) }
+
+ 6. поправить вёрстку под SE (запусти на симуляторе через SE, увидишь куда уехало). Адаптивный лэйаут строится на том, что мы задаём длину/ширину элементов и их расположение, отталкиваясь от safeAreaLayoutGuide (в данном случае можно начать размещать нижнюю кнопку от view.bottom. Мы не задаём ширину width, а прибиваем левый и правый края вью относительно основной вью:
+
+ languageButton.snp.makeConstraints { make in
+     make.leading.trailing.equalToSuperview().inset(20)
+     make.top.equalTo(view.safeAreaLayoutGuide).inset(208)
+     make.height.equalTo(56)
+ }
+ */
+
+
 final class ProfileViewController: UIViewController {
     
     //MARK: - Presenter
@@ -63,7 +86,7 @@ final class ProfileViewController: UIViewController {
         element.clipsToBounds = true
         return element
     }()
-    
+
     private let profileName: UITextView = {
         let element = UITextView()
         element.text = "Dev P"
