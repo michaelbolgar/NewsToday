@@ -101,7 +101,9 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
     }
     
     @objc func shareButtonTapped() {
-        
+        guard let textToShare = contentTextView.text else { return }
+        let activityViewController = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
     
     // MARK: Private methods
@@ -116,6 +118,7 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
         let bookmarkButton = UIBarButtonItem(image: UIImage(named: "bookmark-icon"), style: .plain, target: self, action: #selector(bookmarkButtonTapped))
         bookmarkButton.tintColor = .white
         navigationItem.rightBarButtonItem = bookmarkButton
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
         view.backgroundColor = .systemBackground
         contentTextView.delegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
