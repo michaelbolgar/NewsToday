@@ -103,7 +103,7 @@ final class OnboardingViewController: UIViewController {
 
         onboardingInfoLabel.textAlignment = .center
     }
-    
+
     @objc func pushButtonTapped(){
         
         let nextPage = min(pageControl.currentPage + 1, OnboardingViewController.images.count - 1)
@@ -118,6 +118,11 @@ final class OnboardingViewController: UIViewController {
             nextButton.setTitle("Get Started", for: .normal)
         default:
             break
+        }
+
+        if pageControl.currentPage == 2 {
+            #warning("добить функцию")
+            print ("open tabbar")
         }
     }
 }
@@ -197,20 +202,20 @@ extension OnboardingViewController {
 
 // MARK: - Preview Provider
 
-import SwiftUI
-
-struct StartViewProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().ignoresSafeArea()
-    }
-    
-    struct ContainerView: UIViewRepresentable {
-        func makeUIView(context: Context) -> UIView {
-            let viewController = OnboardingViewController()
-            return viewController.view
-        }
-        
-        func updateUIView(_ uiView: UIView, context: Context) { }
-    }
-}
-
+//import SwiftUI
+//
+//struct StartViewProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().ignoresSafeArea()
+//    }
+//    
+//    struct ContainerView: UIViewRepresentable {
+//        func makeUIView(context: Context) -> UIView {
+//            let viewController = OnboardingViewController()
+//            return viewController.view
+//        }
+//        
+//        func updateUIView(_ uiView: UIView, context: Context) { }
+//    }
+//}
+//

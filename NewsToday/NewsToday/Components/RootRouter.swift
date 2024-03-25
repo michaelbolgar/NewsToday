@@ -27,10 +27,7 @@ final class RootRouter {
         window?.makeKeyAndVisible()
     }
 
-
-    // Переместите методы за пределы start()
-
-    private func showMainTabbar() -> UITabBarController {
+    func showMainTabbar() -> UITabBarController {
         return factory.makeTabBar(
             factory.makeHomeRouter().navigationController,
             factory.makeCategoriesRouter().navigationController,
@@ -44,48 +41,3 @@ final class RootRouter {
         return factory.makeOnboardingViewController()
     }
 }
-
-//import UIKit
-//
-//final class RootRouter {
-//
-//    static let shared = RootRouter()
-//
-//    private var window: UIWindow?
-//    private var factory: AppFactory
-//
-//    // Приватный инициализатор, чтобы предотвратить создание экземпляров класса извне
-//    private init() {
-//        self.window = nil
-//        self.factory = Factory()
-//    }
-//
-//    func configure(window: UIWindow?, factory: AppFactory) {
-//        self.window = window
-//        self.factory = factory
-//    }
-//
-//    func start() {
-//
-//        //insert here code for dark/light mode if needed
-//        if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
-//            window?.rootViewController = showOnboarding()
-//        } else {
-//            window?.rootViewController = showMainTabbar()
-//        }
-//        window?.makeKeyAndVisible()
-//    }
-//
-//    func showMainTabbar() -> UITabBarController {
-//        return factory.makeTabBar(
-//            factory.makeHomeRouter().navigationController ?? UINavigationController(),
-//            factory.makeCategoriesRouter().navigationController ?? UINavigationController(),
-//            factory.makeBookmarksRouter().navigationController ?? UINavigationController(),
-//            factory.makeProfileRouter().navigationController ?? UINavigationController()
-//        )
-//    }
-//
-//    func showOnboarding() -> UIViewController {
-//        return factory.makeOnboardingViewController()
-//    }
-//}
