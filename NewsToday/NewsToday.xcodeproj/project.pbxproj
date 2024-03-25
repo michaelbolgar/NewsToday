@@ -56,6 +56,7 @@
 		F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483667E2BA76C3300751B4A /* DetailsModel.swift */; };
 		F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366802BA76C9000751B4A /* OnboardingVC.swift */; };
 		F48366832BA76CB700751B4A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366822BA76CB700751B4A /* LoginVC.swift */; };
+		F4A5935B2BB1E2B100F923BB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5935A2BB1E2B100F923BB /* UserDefaultsManager.swift */; };
 		F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA62BAC816600EB1569 /* AppFactory.swift */; };
 		F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA82BAC818500EB1569 /* RootRouter.swift */; };
 		F4F78CAB2BAC876700EB1569 /* UINavigationController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */; };
@@ -117,6 +118,7 @@
 		F483667E2BA76C3300751B4A /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		F48366802BA76C9000751B4A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		F48366822BA76CB700751B4A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F4A5935A2BB1E2B100F923BB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		F4F78CA62BAC816600EB1569 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		F4F78CA82BAC818500EB1569 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController Extension.swift"; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				B695B1B42BA8654F00BE49CA /* NetworkManager.swift */,
 				B695B1B92BA879F100BE49CA /* Structs.swift */,
 				B695B1BF2BAACC9D00BE49CA /* NetworkErrors.swift */,
+				F4A5935A2BB1E2B100F923BB /* UserDefaultsManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				F4F78CB72BAC8A1B00EB1569 /* ProfileRouter.swift in Sources */,
 				F48366632BA769C200751B4A /* ProfilePresenter.swift in Sources */,
 				5D41A3012BAAB99600135E7D /* Section.swift in Sources */,
+				F4A5935B2BB1E2B100F923BB /* UserDefaultsManager.swift in Sources */,
 				F48366502BA7593300751B4A /* API.swift in Sources */,
 				F48366162BA741CE00751B4A /* SceneDelegate.swift in Sources */,
 				F48366752BA76BC000751B4A /* CategoriesModel.swift in Sources */,
