@@ -16,9 +16,8 @@ final class OnboardingRouter: BaseRouter {
         self.navigationController = navigationController
         self.factory = factory
     }
-
+    
     func start() {
-        //let onboardingViewController = factory.makeOnboardingViewController()
-        navigationController.viewControllers = [factory.makeOnboardingViewController()]
+        //factory.makeRootRouter(nil).showMainTabbar()
     }
 }

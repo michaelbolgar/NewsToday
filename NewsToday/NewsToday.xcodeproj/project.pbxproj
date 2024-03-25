@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51345DC92BB05EE60033B43A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51345DC82BB05EE60033B43A /* UserDefaults.swift */; };
 		5174DD2F2BAAA58100D4A660 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174DD2E2BAAA58100D4A660 /* MyCollectionViewCell.swift */; };
 		5174DD322BAEE92600D4A660 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174DD312BAEE92600D4A660 /* OnboardingRouter.swift */; };
 		5D41A2F42BA9E79700135E7D /* CategoriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2F32BA9E79700135E7D /* CategoriesCustomCell.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51345DC82BB05EE60033B43A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		5174DD2E2BAAA58100D4A660 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		5174DD312BAEE92600D4A660 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		5D41A2F32BA9E79700135E7D /* CategoriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCustomCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51345DC62BB05E810033B43A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				51345DC72BB05EC70033B43A /* UserDefaults */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		51345DC72BB05EC70033B43A /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				51345DC82BB05EE60033B43A /* UserDefaults.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		5174DD302BAEE8EF00D4A660 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +206,7 @@
 			children = (
 				F483662A2BA74AAE00751B4A /* Application */,
 				F4F78CA52BAC810400EB1569 /* Components */,
+				51345DC62BB05E810033B43A /* Services */,
 				F483664E2BA7591F00751B4A /* Network */,
 				F48366492BA7548300751B4A /* Moduls */,
 				F48366272BA749C000751B4A /* Extensions */,
@@ -609,6 +628,7 @@
 				F483666F2BA76AB500751B4A /* BookmarksViewController.swift in Sources */,
 				F48366182BA741CE00751B4A /* ViewController.swift in Sources */,
 				5174DD2F2BAAA58100D4A660 /* MyCollectionViewCell.swift in Sources */,
+				51345DC92BB05EE60033B43A /* UserDefaults.swift in Sources */,
 				F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */,
 				F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */,
 				F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */,
