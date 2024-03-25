@@ -190,7 +190,7 @@
 			children = (
 				F483662A2BA74AAE00751B4A /* Application */,
 				F4F78CA52BAC810400EB1569 /* Components */,
-				F483664E2BA7591F00751B4A /* Network */,
+				F4A5935D2BB1E34B00F923BB /* Services */,
 				F48366492BA7548300751B4A /* Moduls */,
 				F48366272BA749C000751B4A /* Extensions */,
 				F483662F2BA74D7F00751B4A /* Resources */,
@@ -347,7 +347,6 @@
 				B695B1B42BA8654F00BE49CA /* NetworkManager.swift */,
 				B695B1B92BA879F100BE49CA /* Structs.swift */,
 				B695B1BF2BAACC9D00BE49CA /* NetworkErrors.swift */,
-				F4A5935A2BB1E2B100F923BB /* UserDefaultsManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -476,6 +475,23 @@
 				F483667E2BA76C3300751B4A /* DetailsModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F4A5935D2BB1E34B00F923BB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F4A5935E2BB1E35B00F923BB /* UserDefaults */,
+				F483664E2BA7591F00751B4A /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F4A5935E2BB1E35B00F923BB /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				F4A5935A2BB1E2B100F923BB /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		F4F78CA52BAC810400EB1569 /* Components */ = {
