@@ -55,6 +55,7 @@
 		F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483667E2BA76C3300751B4A /* DetailsModel.swift */; };
 		F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366802BA76C9000751B4A /* OnboardingVC.swift */; };
 		F48366832BA76CB700751B4A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366822BA76CB700751B4A /* LoginVC.swift */; };
+		F4A593632BB23A0B00F923BB /* ProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A593622BB23A0B00F923BB /* ProfileModuleBuilder.swift */; };
 		F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA62BAC816600EB1569 /* AppFactory.swift */; };
 		F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA82BAC818500EB1569 /* RootRouter.swift */; };
 		F4F78CAB2BAC876700EB1569 /* UINavigationController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */; };
@@ -118,6 +119,7 @@
 		F483667E2BA76C3300751B4A /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		F48366802BA76C9000751B4A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		F48366822BA76CB700751B4A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F4A593622BB23A0B00F923BB /* ProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleBuilder.swift; sourceTree = "<group>"; };
 		F4F78CA62BAC816600EB1569 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		F4F78CA82BAC818500EB1569 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController Extension.swift"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		F483664C2BA754BB00751B4A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F4A593612BB239F700F923BB /* Module Builder */,
 				F4F78CB52BAC8A1100EB1569 /* Router */,
 				F483667A2BA76BF600751B4A /* Model */,
 				F483666A2BA76A1B00751B4A /* View */,
@@ -470,6 +473,14 @@
 				F483667E2BA76C3300751B4A /* DetailsModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F4A593612BB239F700F923BB /* Module Builder */ = {
+			isa = PBXGroup;
+			children = (
+				F4A593622BB23A0B00F923BB /* ProfileModuleBuilder.swift */,
+			);
+			path = "Module Builder";
 			sourceTree = "<group>";
 		};
 		F4F78CA52BAC810400EB1569 /* Components */ = {
@@ -648,6 +659,7 @@
 				F48366502BA7593300751B4A /* API.swift in Sources */,
 				F48366162BA741CE00751B4A /* SceneDelegate.swift in Sources */,
 				F4F78CCC2BAE3FC600EB1569 /* SearchBarViewDelegate.swift in Sources */,
+				F4A593632BB23A0B00F923BB /* ProfileModuleBuilder.swift in Sources */,
 				F48366752BA76BC000751B4A /* CategoriesModel.swift in Sources */,
 				5D41A2FD2BA9F72C00135E7D /* CustomHeader.swift in Sources */,
 				F483667C2BA76C0200751B4A /* ProfileModel.swift in Sources */,

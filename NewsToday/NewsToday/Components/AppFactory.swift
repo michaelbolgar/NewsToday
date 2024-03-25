@@ -89,7 +89,8 @@ final class Factory: AppFactory {
     func makeProfileRouter() -> BaseRouter {
         let navController = UINavigationController()
         navController.configureTabBarItem("profile")
-        let router = ProfileRouter(navigationController: navController, factory: self)
+        let moduleBuilder = ProfileModuleBuilder()
+        let router = ProfileRouter(navigationController: navController, factory: self, builder: moduleBuilder)
         router.start()
         return router
     }
