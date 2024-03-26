@@ -7,8 +7,8 @@
 
 import Foundation
 
-
-struct Search: Codable {
+//to delete
+struct Search {
     let searchImage: String?
     let textSearchLabel: String?
     let textLabel: String?

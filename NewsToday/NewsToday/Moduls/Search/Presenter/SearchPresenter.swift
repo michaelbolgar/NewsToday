@@ -8,24 +8,22 @@
 import UIKit
 
 protocol SearchArticlesPresenterProtocol {
-    func viewDidLoad()
     func numberOfArticles() -> Int
-    func getArticles(at index: Int) -> Search
+    func getArticles(at index: Int) -> Article
     func didSelectArticle(at indexPath: IndexPath)
+    func viewDidLoad()
 }
 
 final class SearchArticlesPresenter: SearchArticlesPresenterProtocol {
     weak var searchArticlesViewControllerProtocol: SearchArticlesViewControllerProtocol?
-    var searchArticles: [Search] = []
+    var searchArticles: [Article] = []
     
     init(searchArticlesViewControllerProtocol: SearchArticlesViewControllerProtocol? = nil) {
         self.searchArticlesViewControllerProtocol = searchArticlesViewControllerProtocol
     }
     
     func viewDidLoad() {
-        searchArticles = [Search(searchImage: nil,
-                                 textSearchLabel: "Important News",
-                                 textLabel: "A Simple Trick For Creating Color Palettes Quickly")]
+       
         searchArticlesViewControllerProtocol?.reloadData()
     }
     
@@ -33,7 +31,7 @@ final class SearchArticlesPresenter: SearchArticlesPresenterProtocol {
         return searchArticles.count
     }
     
-    func getArticles(at index: Int) -> Search {
+    func getArticles(at index: Int) -> Article {
         return searchArticles[index]
     }
     

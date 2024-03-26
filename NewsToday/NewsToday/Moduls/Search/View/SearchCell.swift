@@ -13,12 +13,12 @@ class SearchCell: UITableViewCell {
     private let searchImage: UIImageView = {
     let image = UIImageView()
     image.layer.cornerRadius = 12
-     image.image = UIImage(systemName: "questionmark", 
+    image.image = UIImage(systemName: "questionmark", 
                            withConfiguration: UIImage.SymbolConfiguration(pointSize: 25))?.withTintColor(.black, renderingMode: .alwaysOriginal)
     return image
     }()
 
-    private let categoryLabel = UILabel.makeLabel(font: UIFont.InterRegular(ofSize: 14),
+     let categoryLabel = UILabel.makeLabel(font: UIFont.InterRegular(ofSize: 14),
                                                   textColor: UIColor.greyPrimary,
                                                   numberOfLines: 1)
 
@@ -40,10 +40,10 @@ class SearchCell: UITableViewCell {
 
     //MARK: - Public Methods
 
-    func set(info: Search) {
+     func set(info: Article) {
     //    searchImage.image = info.searchImage
-        categoryLabel.text = info.textSearchLabel
-        mainLabel.text = info.textLabel
+        categoryLabel.text = info.author
+        mainLabel.text = info.title
     }
 
     private func configure() {
