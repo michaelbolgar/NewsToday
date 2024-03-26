@@ -81,7 +81,8 @@ final class Factory: AppFactory {
     func makeBookmarksRouter() -> BaseRouter {
         let navController = UINavigationController()
         navController.configureTabBarItem("bookmarks")
-        let router = BookmarksRouter(navigationController: navController, factory: self)
+        let moduleBuilder = BookmarksModuleBuilder()
+        let router = BookmarksRouter(navigationController: navController, factory: self, builder: moduleBuilder)
         router.start()
         return router
     }

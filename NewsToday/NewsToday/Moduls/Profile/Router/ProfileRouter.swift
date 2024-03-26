@@ -9,14 +9,18 @@ protocol ProfileRouterProtocol: BaseRouter {
     func showLoginVC()
 }
 
+// MARK: ProfileRouter
+
 final class ProfileRouter: ProfileRouterProtocol {
+
     var navigationController: UINavigationController
-
     var moduleBuilder: (any ProfileModuleBuilderProtocol)?
-
     private let factory: AppFactory
 
-    init(navigationController: UINavigationController, factory: AppFactory, builder: ProfileModuleBuilderProtocol) {
+    init(navigationController: UINavigationController, 
+         factory: AppFactory,
+         builder: ProfileModuleBuilderProtocol)
+    {
         self.navigationController = navigationController
         self.factory = factory
         self.moduleBuilder = builder
