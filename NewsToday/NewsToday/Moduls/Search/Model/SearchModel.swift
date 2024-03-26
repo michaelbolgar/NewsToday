@@ -9,5 +9,7 @@ import Foundation
 
 
 struct Search: Codable {
+    let searchImage: String?
     let textSearchLabel: String?
+    let textLabel: String?
 }

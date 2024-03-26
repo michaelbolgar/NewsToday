@@ -23,7 +23,9 @@ final class SearchArticlesPresenter: SearchArticlesPresenterProtocol {
     }
     
     func viewDidLoad() {
-        searchArticles = [Search(textSearchLabel: "Nnn")]
+        searchArticles = [Search(searchImage: nil,
+                                 textSearchLabel: "Important News",
+                                 textLabel: "A Simple Trick For Creating Color Palettes Quickly")]
         searchArticlesViewControllerProtocol?.reloadData()
     }
     

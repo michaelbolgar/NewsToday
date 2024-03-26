@@ -1,9 +1,4 @@
 //
-//  SearchArticlesViewController.swift
-//  NewsToday
-//
-//  Created by Maryna Bolotska on 24/03/24.
-//
 
 import UIKit
 protocol SearchArticlesViewControllerProtocol: AnyObject {
@@ -45,7 +40,8 @@ final class SearchArticlesViewController: UIViewController, SearchArticlesViewCo
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(SearchCell.self,
+                           forCellReuseIdentifier: SearchCell.identifier)
     }
     
   
@@ -54,7 +50,7 @@ final class SearchArticlesViewController: UIViewController, SearchArticlesViewCo
         tableView.snp.makeConstraints { make in
                    make.edges.equalToSuperview()
        }
-        title = searchText
+        title = "Results of the search query: \(searchText)"
     }
 }
 
@@ -69,9 +65,9 @@ extension SearchArticlesViewController:
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier, for: indexPath) as? SearchCell else { return UITableViewCell() }
         let article = presenter.getArticles(at: indexPath.row)
-        cell.textLabel?.text = article.textSearchLabel
+        cell.set(info: article)
         
             return cell
     }
