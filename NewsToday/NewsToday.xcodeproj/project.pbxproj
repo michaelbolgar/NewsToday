@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BB6589E2BB301580013CDDB /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6589D2BB301580013CDDB /* LanguageViewController.swift */; };
+		0BB658A02BB301660013CDDB /* Terms&ConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6589F2BB301660013CDDB /* Terms&ConditionsViewController.swift */; };
+		0BB658A22BB3019F0013CDDB /* Terms&ConditionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB658A12BB3019E0013CDDB /* Terms&ConditionsModel.swift */; };
 		5174DD2F2BAAA58100D4A660 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174DD2E2BAAA58100D4A660 /* MyCollectionViewCell.swift */; };
 		5D41A2F42BA9E79700135E7D /* CategoriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2F32BA9E79700135E7D /* CategoriesCustomCell.swift */; };
 		5D41A2F62BA9EADF00135E7D /* PopularCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2F52BA9EADF00135E7D /* PopularCustomCell.swift */; };
@@ -69,6 +72,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BB6589D2BB301580013CDDB /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanguageViewController.swift; path = ../../../../../../../../../Desktop/LanguageViewController.swift; sourceTree = "<group>"; };
+		0BB6589F2BB301660013CDDB /* Terms&ConditionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Terms&ConditionsViewController.swift"; path = "../../../../../../../../../Desktop/Terms&ConditionsViewController.swift"; sourceTree = "<group>"; };
+		0BB658A12BB3019E0013CDDB /* Terms&ConditionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Terms&ConditionsModel.swift"; path = "../../../../../../../../../Desktop/Terms&ConditionsModel.swift"; sourceTree = "<group>"; };
 		5174DD2E2BAAA58100D4A660 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D41A2F32BA9E79700135E7D /* CategoriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCustomCell.swift; sourceTree = "<group>"; };
 		5D41A2F52BA9EADF00135E7D /* PopularCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCustomCell.swift; sourceTree = "<group>"; };
@@ -427,6 +433,8 @@
 		F483666A2BA76A1B00751B4A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0BB6589F2BB301660013CDDB /* Terms&ConditionsViewController.swift */,
+				0BB6589D2BB301580013CDDB /* LanguageViewController.swift */,
 				F48366702BA76AE300751B4A /* ProfileViewController.swift */,
 			);
 			path = View;
@@ -459,6 +467,7 @@
 		F483667A2BA76BF600751B4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0BB658A12BB3019E0013CDDB /* Terms&ConditionsModel.swift */,
 				F483667B2BA76C0200751B4A /* ProfileModel.swift */,
 			);
 			path = Model;
@@ -619,6 +628,7 @@
 				F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */,
 				F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */,
 				F48366672BA769F400751B4A /* CategoriesPresenter.swift in Sources */,
+				0BB6589E2BB301580013CDDB /* LanguageViewController.swift in Sources */,
 				F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */,
 				F483662E2BA74C6C00751B4A /* UIFont Extension.swift in Sources */,
 				F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */,
@@ -637,6 +647,7 @@
 				B695B1C02BAACC9E00BE49CA /* NetworkErrors.swift in Sources */,
 				5D41A2F82BA9EEA700135E7D /* RecommendedCustomCell.swift in Sources */,
 				F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */,
+				0BB658A02BB301660013CDDB /* Terms&ConditionsViewController.swift in Sources */,
 				F483662C2BA74AEF00751B4A /* UIColor Extension.swift in Sources */,
 				F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */,
 				F4F78CCE2BAE3FE300EB1569 /* SearchBarView Extension.swift in Sources */,
@@ -659,6 +670,7 @@
 				B695B1BA2BA879F100BE49CA /* Structs.swift in Sources */,
 				F4F78CB12BAC89E600EB1569 /* CategoriesRouter.swift in Sources */,
 				F48366732BA76B1B00751B4A /* DetailsViewController.swift in Sources */,
+				0BB658A22BB3019F0013CDDB /* Terms&ConditionsModel.swift in Sources */,
 				5D41A2FF2BAAB1A300135E7D /* RecommendedCustomHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
