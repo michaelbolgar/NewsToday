@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 protocol CategoriesPresenterProtocol {
     func fetchСategories() -> [Category]
