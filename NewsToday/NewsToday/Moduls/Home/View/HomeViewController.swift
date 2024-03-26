@@ -24,7 +24,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         setViews()
         collectionViewRegister()
-        activateKeyboardRemoval()
+        view.hideKeyboard()
     }
     
     //MARK: -> Functions
@@ -41,12 +41,6 @@ final class HomeViewController: UIViewController {
         collectionView.register(RecommendedCustomCell.self, forCellWithReuseIdentifier: RecommendedCustomCell.reuseIdentifier)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CustomHeaderView.reuseIdentifier)
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecommendedCustomHeader.reuseIdentifier)
-    }
-    
-    // TODO: перенести в extension 
-    private func activateKeyboardRemoval() {
-        let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
     }
 
     private func createLayout() -> UICollectionViewLayout {
