@@ -1,6 +1,10 @@
 import UIKit
 
 protocol HomePresenterProtocol {
+    func showSearchVC()
+    func showSeeAllVC()
+    func showDetailsVC()
+
     func getCategoryArrayCount() -> Int
     func getArticleArrayCount() -> Int
     func getCategory(at index: IndexPath) -> String
@@ -10,12 +14,14 @@ protocol HomePresenterProtocol {
 
 final class HomePresenter: HomePresenterProtocol {
 
-    weak private var homeViewController: HomeViewControllerProtocol?
-    
+    private unowned var view: HomeViewControllerProtocol
+//    private var router: HomeRouterProtocol
+
     var bookmarks: [Bookmarks] = []
     
-    init(homeViewController: HomeViewControllerProtocol? = nil) {
-        self.homeViewController = homeViewController
+    init(view: HomeViewControllerProtocol) {
+        self.view = view
+//        self.router = router
     }
     
     var categoryArray = [
@@ -30,7 +36,18 @@ final class HomePresenter: HomePresenterProtocol {
     
     var articleArray = [Article(source: Source(id: "fewe", name: "vrf"), author: "vfdf", title: "fdfdf", description: "fdfdfdf", url: "fdfe", urlToImage: "fdfer", publishedAt: "fer", content: "fderer")]
     
-    
+    func showSearchVC() {
+//        router.showSearchVC()
+    }
+
+    func showSeeAllVC() {
+//        router.showSeeAllVC()
+    }
+
+    func showDetailsVC() {
+//        router.showDetailsVC()
+    }
+
     func getCategoryArrayCount() -> Int {
         categoryArray.count
     }
@@ -52,12 +69,11 @@ final class HomePresenter: HomePresenterProtocol {
             case .success(let category):
                 self.articleArray = category.articles
                 DispatchQueue.main.async {
-                    self.homeViewController?.reloadCollectionView()
+                    self.view.reloadCollectionView()
                 }
             case .failure(let error):
                 print("Error: \(error)")
             }
         }
     }
-    
 }

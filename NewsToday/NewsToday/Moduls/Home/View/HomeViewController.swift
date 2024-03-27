@@ -1,6 +1,22 @@
 import UIKit
 import SnapKit
 
+/*
+
+ Что нужно исправить и доделать:
+
+ 1. Нужно сделать чтобы была нажата только 1 кнопка
+ 2. Сделать переходы на другие экраны с кнопок search, see all
+ 3. Сделать логику нажатия на ячейку, секции 1 и перехода на нее
+ 4. При изменении категории не обновляются картинки
+ 5. Баг с подменой картинки исправить
+ 6. При скролле вниз меняются нажатые кнопки
+
+ 7. стартовый предвыбор категории для верхней коллекции при первом запуске экрана
+ 8. заменить entertaiment на culture в хедлайне
+ 9. привязать роутер -- пока что он просто рядом болтается 
+ */
+
 protocol HomeViewControllerProtocol: AnyObject {
     func reloadCollectionView()
 }
@@ -11,6 +27,7 @@ final class HomeViewController: UIViewController {
     var presenter: HomePresenterProtocol!
     var isTapped = false
     
+    #warning("что за название?)")
     var dict = [1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false ]
 
     //MARK: -> Properties
@@ -30,7 +47,7 @@ final class HomeViewController: UIViewController {
     //MARK: -> Life circle
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = HomePresenter(homeViewController: self)
+        presenter = HomePresenter(view: self)
         setViews()
         collectionViewRegister()
         view.hideKeyboard()
@@ -173,8 +190,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
             
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCustomCell.reuseIdentifier,
-                                                                for: indexPath) as? PopularCustomCell else {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PopularCustomCell.reuseIdentifier,
+                for: indexPath) as? PopularCustomCell else {
                 return UICollectionViewCell()
             }
             let data = presenter.getArticle(at: indexPath)
@@ -182,8 +200,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
             
         default:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedCustomCell.reuseIdentifier,
-                                                                for: indexPath) as? RecommendedCustomCell else {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RecommendedCustomCell.reuseIdentifier,
+                for: indexPath) as? RecommendedCustomCell else {
                 return UICollectionViewCell()
             }
             

@@ -44,7 +44,6 @@
 		F48366502BA7593300751B4A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483664F2BA7593300751B4A /* API.swift */; };
 		F48366562BA768EF00751B4A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366552BA768EF00751B4A /* HomePresenter.swift */; };
 		F48366582BA768FA00751B4A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366572BA768FA00751B4A /* HomeViewController.swift */; };
-		F483665A2BA7691000751B4A /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366592BA7691000751B4A /* HomeModel.swift */; };
 		F48366612BA7699100751B4A /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366602BA7699100751B4A /* DetailsPresenter.swift */; };
 		F48366632BA769C200751B4A /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366622BA769C200751B4A /* ProfilePresenter.swift */; };
 		F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366642BA769DA00751B4A /* BookmarksPresenter.swift */; };
@@ -59,6 +58,7 @@
 		F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483667E2BA76C3300751B4A /* DetailsModel.swift */; };
 		F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366802BA76C9000751B4A /* OnboardingVC.swift */; };
 		F48366832BA76CB700751B4A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366822BA76CB700751B4A /* LoginVC.swift */; };
+		F4A5937B2BB4D55100F923BB /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5937A2BB4D55100F923BB /* HomeBuilder.swift */; };
 		F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA62BAC816600EB1569 /* AppFactory.swift */; };
 		F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA82BAC818500EB1569 /* RootRouter.swift */; };
 		F4F78CAB2BAC876700EB1569 /* UINavigationController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */; };
@@ -111,7 +111,6 @@
 		F483664F2BA7593300751B4A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F48366552BA768EF00751B4A /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		F48366572BA768FA00751B4A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F48366592BA7691000751B4A /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		F48366602BA7699100751B4A /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		F48366622BA769C200751B4A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		F48366642BA769DA00751B4A /* BookmarksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksPresenter.swift; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		F483667E2BA76C3300751B4A /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		F48366802BA76C9000751B4A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		F48366822BA76CB700751B4A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F4A5937A2BB4D55100F923BB /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 		F4F78CA62BAC816600EB1569 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		F4F78CA82BAC818500EB1569 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController Extension.swift"; sourceTree = "<group>"; };
@@ -294,6 +294,7 @@
 		F48366482BA7547000751B4A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F4A593792BB4D54300F923BB /* Module Builder */,
 				5D7DA5432BB30B3600998C94 /* Metrics */,
 				F4F78CAC2BAC889100EB1569 /* Router */,
 				F48366512BA768C100751B4A /* Model */,
@@ -376,7 +377,6 @@
 		F48366512BA768C100751B4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F48366592BA7691000751B4A /* HomeModel.swift */,
 				5D41A2FA2BA9F11F00135E7D /* RecommendedModel.swift */,
 			);
 			path = Model;
@@ -498,6 +498,14 @@
 				F483667E2BA76C3300751B4A /* DetailsModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F4A593792BB4D54300F923BB /* Module Builder */ = {
+			isa = PBXGroup;
+			children = (
+				F4A5937A2BB4D55100F923BB /* HomeBuilder.swift */,
+			);
+			path = "Module Builder";
 			sourceTree = "<group>";
 		};
 		F4F78CA52BAC810400EB1569 /* Components */ = {
@@ -655,7 +663,6 @@
 				F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */,
 				D094A2C32BAAD10500FFEB5E /* BookmarkCell.swift in Sources */,
 				5D41A2FB2BA9F11F00135E7D /* RecommendedModel.swift in Sources */,
-				F483665A2BA7691000751B4A /* HomeModel.swift in Sources */,
 				B695B1B72BA865B800BE49CA /* Endpoint.swift in Sources */,
 				5D41A2F42BA9E79700135E7D /* CategoriesCustomCell.swift in Sources */,
 				F483666D2BA76A5E00751B4A /* CategoriesViewController.swift in Sources */,
@@ -685,6 +692,7 @@
 				F483667C2BA76C0200751B4A /* ProfileModel.swift in Sources */,
 				F4F78CB42BAC8A0300EB1569 /* BookmarksRouter.swift in Sources */,
 				F4F78CCA2BAE3F8A00EB1569 /* SearchBarView.swift in Sources */,
+				F4A5937B2BB4D55100F923BB /* HomeBuilder.swift in Sources */,
 				F48366832BA76CB700751B4A /* LoginVC.swift in Sources */,
 				F48366792BA76BEB00751B4A /* BookmarksModel.swift in Sources */,
 				F48366612BA7699100751B4A /* DetailsPresenter.swift in Sources */,
