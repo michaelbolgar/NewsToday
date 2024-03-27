@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 protocol DetailsViewControllerProtocol: AnyObject {
-    func setupData(with testData: ([DetailsModel]))
+    func setupData(with data: ([Article]))
     func displayData()
 }
 
@@ -13,7 +13,7 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
     
     
     //MARK: - Private properties
-    private var testData: [DetailsModel] = []
+    var data: [Article] = []
     weak private var detailsPresenterProtocol: DetailsPresenterProtocol?
     
     //MARK: - UI Components
@@ -60,7 +60,7 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
                                                     numberOfLines: 1)
     private let titleLabel = UILabel.makeLabel(font: UIFont.InterSemiBold(ofSize: 16),
                                                textColor: UIColor.blackPrimary,
-                                               numberOfLines: 1)
+                                               numberOfLines: 0)
     private let contentTextView: UITextView = {
         let textView = UITextView()
         textView.isEditable = false
@@ -76,23 +76,23 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
         setupConstraints()
         presenter.setDetailsViewControllerProtocol(detailsViewControllerProtocol: self)
         self.detailsPresenterProtocol = presenter
-        self.detailsPresenterProtocol?.getData()
+        self.detailsPresenterProtocol?.getData(with: data)
         configureController()
         setNavigationBar(title: "")
      
     }
     // MARK: - Public Methods
-    func setupData(with testData: ([DetailsModel])) {
-        self.testData = testData
+    func setupData(with data: ([Article])) {
+        self.data = data
         
     }
     
     func displayData() {
-        categoryLabel.text = testData.first?.categoryLabel
-        headlineLabel.text = testData.first?.headlineLabel
-        authorLabel.text = testData.first?.authorLabel
-        titleLabel.text = testData.first?.titleLabel
-        contentTextView.text = testData.first?.contentTextView
+        categoryLabel.text = data.first?.source.name
+        headlineLabel.text = data.first?.title
+        authorLabel.text = data.first?.author
+        titleLabel.text = data.first?.title
+        contentTextView.text = data.first?.content
         
     }
     
@@ -145,7 +145,8 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
         }
         
         labelView.snp.makeConstraints { make in
-            make.width.equalTo(75)
+            make.width.greaterThanOrEqualTo(32) 
+            make.width.equalTo(categoryLabel.snp.width).offset(20)
             make.height.equalTo(32)
             make.top.equalToSuperview().offset(168)
             make.leading.equalToSuperview().offset(20)
@@ -173,7 +174,7 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(contentImage.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         contentTextView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)

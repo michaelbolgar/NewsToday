@@ -10,7 +10,6 @@ import UIKit
 protocol SearchArticlesPresenterProtocol {
     func numberOfArticles() -> Int
     func getArticles(at index: Int) -> Article
-    func didSelectArticle(at indexPath: IndexPath)
     func viewDidLoad()
 }
 
@@ -35,7 +34,5 @@ final class SearchArticlesPresenter: SearchArticlesPresenterProtocol {
         return searchArticles[index]
     }
     
-    func didSelectArticle(at indexPath: IndexPath) {
-       //shows DetailcVC
-    }
+
 }

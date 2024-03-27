@@ -46,7 +46,6 @@ final class SearchArticlesViewController: UIViewController, SearchArticlesViewCo
         [searchBar, tableView].forEach {view.addSubview($0) }
     }
     private func configureTableView() {
-        tableView.rowHeight = 96
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
@@ -76,7 +75,7 @@ extension SearchArticlesViewController: UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.numberOfArticles()
+        return presenter.numberOfArticles()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,7 +85,41 @@ extension SearchArticlesViewController: UITableViewDelegate, UITableViewDataSour
             return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let article = presenter.getArticles(at: indexPath.row)
+        
+        guard let articleText = article.title else { return }
+        NetworkManager.shared.fetchData(for: articleText) { result in
+            switch result {
+            case .success(let searchResults):
+                DispatchQueue.main.async {
+                    let vc = DetailsViewController()
+                    vc.data = searchResults.articles
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            case .failure(let error):
+                print("Error fetching search results: \(error)")
+            }
+        }
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let article = presenter.getArticles(at: indexPath.row)
+        guard let articleDescription = article.title else {
+            return UITableView.automaticDimension
+        }
+        
+        let minimumHeight: CGFloat = 96
+        
+        let boundingBox = NSString(string: articleDescription).boundingRect(with: CGSize(width: tableView.frame.width - 30, height: .greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)], context: nil)
+        // Return the calculated height if it's greater than the minimum height, otherwise return the minimum height
+        return max(boundingBox.height + 20, minimumHeight)
+    }
+
+
 }
 
 extension SearchArticlesViewController: SearchBarViewDelegate {

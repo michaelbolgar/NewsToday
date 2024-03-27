@@ -56,7 +56,7 @@
 		F48366752BA76BC000751B4A /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366742BA76BC000751B4A /* CategoriesModel.swift */; };
 		F48366792BA76BEB00751B4A /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366782BA76BEB00751B4A /* BookmarksModel.swift */; };
 		F483667C2BA76C0200751B4A /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483667B2BA76C0200751B4A /* ProfileModel.swift */; };
-		F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483667E2BA76C3300751B4A /* DetailsModel.swift */; };
+		F483667F2BA76C3300751B4A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483667E2BA76C3300751B4A /* Article.swift */; };
 		F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366802BA76C9000751B4A /* OnboardingVC.swift */; };
 		F48366832BA76CB700751B4A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366822BA76CB700751B4A /* LoginVC.swift */; };
 		F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA62BAC816600EB1569 /* AppFactory.swift */; };
@@ -123,7 +123,7 @@
 		F48366742BA76BC000751B4A /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		F48366782BA76BEB00751B4A /* BookmarksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
 		F483667B2BA76C0200751B4A /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
-		F483667E2BA76C3300751B4A /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		F483667E2BA76C3300751B4A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F48366802BA76C9000751B4A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		F48366822BA76CB700751B4A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F4F78CA62BAC816600EB1569 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 		F483667D2BA76C2900751B4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F483667E2BA76C3300751B4A /* DetailsModel.swift */,
+				F483667E2BA76C3300751B4A /* Article.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -664,7 +664,7 @@
 				F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */,
 				F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */,
 				F48366672BA769F400751B4A /* CategoriesPresenter.swift in Sources */,
-				F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */,
+				F483667F2BA76C3300751B4A /* Article.swift in Sources */,
 				F483662E2BA74C6C00751B4A /* UIFont Extension.swift in Sources */,
 				F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */,
 				D094A2C32BAAD10500FFEB5E /* BookmarkCell.swift in Sources */,
