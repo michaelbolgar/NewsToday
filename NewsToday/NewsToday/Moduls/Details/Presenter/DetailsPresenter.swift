@@ -1,25 +1,21 @@
 import UIKit
 
 protocol DetailsPresenterProtocol: AnyObject {
-    func getData()
+    func getData(with data: [Article])
 }
 
 final class DetailsPresenter: DetailsPresenterProtocol {
-   
+
     weak private var detailsViewControllerProtocol: DetailsViewControllerProtocol?
-    var testData = DetailsModel.testData
-    
+
+
     func setDetailsViewControllerProtocol(detailsViewControllerProtocol: DetailsViewControllerProtocol?) {
         self.detailsViewControllerProtocol = detailsViewControllerProtocol
     }
-    
-    private func loadTestData() {
-        self.detailsViewControllerProtocol?.setupData(with: self.testData)
-     
-    }
-    
-    func getData() {
-        self.loadTestData()
+
+
+    func getData(with data:[Article]) {
+        self.detailsViewControllerProtocol?.setupData(with: data)
         self.detailsViewControllerProtocol?.displayData()
     }
 }
