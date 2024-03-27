@@ -37,11 +37,10 @@ final class CategoriesViewController: UIViewController {
         
         setupUI()
         setupConstraints()
-        setupCategories()
     
         presenter = CategoriesPresenter()
         categories = presenter.fetchСategories()
-       
+        setupCategories()
      
     }
     
