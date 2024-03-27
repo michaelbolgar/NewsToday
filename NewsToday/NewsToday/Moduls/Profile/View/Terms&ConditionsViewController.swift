@@ -17,14 +17,10 @@ class TermsConditionsViewController: UIViewController {
         return element
     }()
     
-    private let termsConditions: UITextView = {
-        let element = UITextView()
-        element.text = "Terms & Conditions"
-        element.textColor = .blackPrimary
-        element.backgroundColor = .clear
-        element.font = .InterBold(ofSize: 24)
-        return element
-    }()
+    private let termsConditions = UILabel.makeLabel(text: "Terms & Conditions",
+                                                    font: UIFont.InterBold(ofSize: 24),
+                                                    textColor: .blackPrimary,
+                                                    numberOfLines: nil)
     
     private let textRuleView: UITextView = {
         let element = UITextView()
@@ -40,8 +36,7 @@ class TermsConditionsViewController: UIViewController {
     
     private let backButton: UIButton = {
         let element = UIButton()
-        element.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        element.imageView?.tintColor = .black
+        element.setImage(UIImage(named: "LeftIcon"), for: .normal)
         return element
     }()
 
@@ -54,34 +49,30 @@ class TermsConditionsViewController: UIViewController {
     }
     
     private func setupViews(){
-        view.addSubview(background)
-        view.addSubview(textRuleView)
-        view.addSubview(backButton)
-        view.addSubview(termsConditions)
+        [background, textRuleView, backButton, termsConditions].forEach {view.addSubview($0)}
     }
     
 }
 
 extension TermsConditionsViewController{
     private func setupConstrains(){
-        background.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+        background.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
-        textRuleView.snp.makeConstraints {maker in
-            maker.top.equalTo(view.safeAreaLayoutGuide).inset(76)
-            maker.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        textRuleView.snp.makeConstraints {make in
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(76)
+            make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         backButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(21)
-            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(28)
+            make.left.equalTo(view).inset(20)
         }
         
         termsConditions.snp.makeConstraints { make in
-            make.top.equalTo(view).inset(68)
-            make.left.equalTo(view).inset(74)
-            make.width.equalTo(260)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(24)
+            make.left.leading.trailing.equalTo(view).inset(74)
             make.height.equalTo(32)
         }
     }
