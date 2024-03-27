@@ -16,6 +16,9 @@
 		5D41A2FD2BA9F72C00135E7D /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2FC2BA9F72C00135E7D /* CustomHeader.swift */; };
 		5D41A2FF2BAAB1A300135E7D /* RecommendedCustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2FE2BAAB1A300135E7D /* RecommendedCustomHeader.swift */; };
 		5D41A3012BAAB99600135E7D /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A3002BAAB99600135E7D /* Section.swift */; };
+		B686C0C52BB2B43100CF1474 /* UIButton Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B686C0C42BB2B43100CF1474 /* UIButton Extension.swift */; };
+		B686C0C72BB2D90000CF1474 /* CategoriesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B686C0C62BB2D8FF00CF1474 /* CategoriesModuleBuilder.swift */; };
+		B686C0CC2BB315EA00CF1474 /* UIStackView Extension§.swift in Sources */ = {isa = PBXBuildFile; fileRef = B686C0CB2BB315EA00CF1474 /* UIStackView Extension§.swift */; };
 		B695B1B52BA8654F00BE49CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B42BA8654F00BE49CA /* NetworkManager.swift */; };
 		B695B1B72BA865B800BE49CA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B62BA865B800BE49CA /* Endpoint.swift */; };
 		B695B1BA2BA879F100BE49CA /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B92BA879F100BE49CA /* Structs.swift */; };
@@ -80,6 +83,9 @@
 		5D41A2FC2BA9F72C00135E7D /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		5D41A2FE2BAAB1A300135E7D /* RecommendedCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCustomHeader.swift; sourceTree = "<group>"; };
 		5D41A3002BAAB99600135E7D /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		B686C0C42BB2B43100CF1474 /* UIButton Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton Extension.swift"; sourceTree = "<group>"; };
+		B686C0C62BB2D8FF00CF1474 /* CategoriesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModuleBuilder.swift; sourceTree = "<group>"; };
+		B686C0CB2BB315EA00CF1474 /* UIStackView Extension§.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView Extension§.swift"; sourceTree = "<group>"; };
 		B695B1B42BA8654F00BE49CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B695B1B62BA865B800BE49CA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		B695B1B92BA879F100BE49CA /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
@@ -175,6 +181,14 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		B686C0C82BB2D91000CF1474 /* ModuleBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				B686C0C62BB2D8FF00CF1474 /* CategoriesModuleBuilder.swift */,
+			);
+			path = ModuleBuilder;
+			sourceTree = "<group>";
+		};
 		F48366072BA741CE00751B4A = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +223,7 @@
 		F48366272BA749C000751B4A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B686C0C42BB2B43100CF1474 /* UIButton Extension.swift */,
 				F4F78CCD2BAE3FE300EB1569 /* SearchBarView Extension.swift */,
 				F48366282BA749DA00751B4A /* UILabel Extension.swift */,
 				F483662B2BA74AEF00751B4A /* UIColor Extension.swift */,
@@ -216,6 +231,7 @@
 				F48366402BA7523100751B4A /* UIView Extension.swift */,
 				F48366422BA752AB00751B4A /* UIViewController Extension.swift */,
 				F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */,
+				B686C0CB2BB315EA00CF1474 /* UIStackView Extension§.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +321,7 @@
 		F483664A2BA7549700751B4A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B686C0C82BB2D91000CF1474 /* ModuleBuilder */,
 				F4F78CAF2BAC89DA00EB1569 /* Router */,
 				F48366762BA76BC900751B4A /* Model */,
 				F48366682BA76A1400751B4A /* View */,
@@ -666,6 +683,7 @@
 				F48366292BA749DA00751B4A /* UILabel Extension.swift in Sources */,
 				B695B1C02BAACC9E00BE49CA /* NetworkErrors.swift in Sources */,
 				5D41A2F82BA9EEA700135E7D /* RecommendedCustomCell.swift in Sources */,
+				B686C0C72BB2D90000CF1474 /* CategoriesModuleBuilder.swift in Sources */,
 				F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */,
 				F483662C2BA74AEF00751B4A /* UIColor Extension.swift in Sources */,
 				F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */,
@@ -682,6 +700,7 @@
 				F4F78CCC2BAE3FC600EB1569 /* SearchBarViewDelegate.swift in Sources */,
 				F48366752BA76BC000751B4A /* CategoriesModel.swift in Sources */,
 				5D41A2FD2BA9F72C00135E7D /* CustomHeader.swift in Sources */,
+				B686C0CC2BB315EA00CF1474 /* UIStackView Extension§.swift in Sources */,
 				F483667C2BA76C0200751B4A /* ProfileModel.swift in Sources */,
 				F4F78CB42BAC8A0300EB1569 /* BookmarksRouter.swift in Sources */,
 				F4F78CCA2BAE3F8A00EB1569 /* SearchBarView.swift in Sources */,
@@ -691,6 +710,7 @@
 				B695B1BA2BA879F100BE49CA /* Structs.swift in Sources */,
 				F4F78CB12BAC89E600EB1569 /* CategoriesRouter.swift in Sources */,
 				F48366732BA76B1B00751B4A /* DetailsViewController.swift in Sources */,
+				B686C0C52BB2B43100CF1474 /* UIButton Extension.swift in Sources */,
 				5D41A2FF2BAAB1A300135E7D /* RecommendedCustomHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
