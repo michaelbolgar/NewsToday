@@ -59,7 +59,7 @@ final class PopularCustomCell: UICollectionViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Errors.fatalError)
     }
     //MARK: -> Functions
     
@@ -77,8 +77,11 @@ final class PopularCustomCell: UICollectionViewCell {
         }
     }
     
-    func configure(imageName: String, title: String, text: String) {
-        imageView.image = UIImage(named: imageName)
+    func configure(imageURL: String, title: String, text: String, id: String) {
+        
+        DispatchQueue.main.async {
+            self.imageView.loadImage(withURL: imageURL, id: id)
+        }
         titleLabel.text = title
         textLabel.text = text
     }

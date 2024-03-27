@@ -11,6 +11,7 @@ final class CategoriesCustomCell: UICollectionViewCell {
     
     //MARK: -> Properties
     static var reuseIdentifier: String {"\(Self.self)"}
+    private var isButtonSelected = false
     
     private let titleButton: UIButton = {
         let button = UIButton()
@@ -29,7 +30,7 @@ final class CategoriesCustomCell: UICollectionViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Errors.fatalError)
     }
 
     //MARK: -> Functions
@@ -40,7 +41,30 @@ final class CategoriesCustomCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
     }
-    func configure(title: String) {
-        titleButton.setTitle(title, for: .normal)
+    
+    override func prepareForReuse() {
+        titleButton.removeTarget(nil, action: nil, for: .allEvents)
+    }
+    
+    func resetButtonState() {
+        if self.isButtonSelected {
+            self.titleButton.backgroundColor = .greyLighter
+            self.titleButton.setTitleColor(UIColor.greyPrimary, for: .normal)
+        } else {
+            self.titleButton.backgroundColor = .purplePrimary
+            self.titleButton.setTitleColor(UIColor.white, for: .normal)
+        }
+        self.isButtonSelected = !self.isButtonSelected
+    }
+    
+    func configure(titleCategory: String, handler: @escaping (String) -> Void) {
+        titleButton.setTitle(titleCategory, for: .normal)
+        
+         let action = UIAction { _ in
+            handler(titleCategory)
+            self.resetButtonState()
+        }
+       
+        titleButton.addAction(action, for: .touchUpInside)
     }
 }

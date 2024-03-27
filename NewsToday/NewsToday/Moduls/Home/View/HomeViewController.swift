@@ -2,13 +2,16 @@ import UIKit
 import SnapKit
 
 protocol HomeViewControllerProtocol: AnyObject {
-
+    func reloadCollectionView()
 }
 
 final class HomeViewController: UIViewController {
 
     //MARK: - Presenter
     var presenter: HomePresenterProtocol!
+    var isTapped = false
+    
+    var dict = [1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false ]
 
     //MARK: -> Properties
     private lazy var collectionView: UICollectionView = {
@@ -19,9 +22,15 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private let titleLabel = UILabel.makeLabel(text: Constants.homeTitle,
+                                               font: UIFont.InterBold(ofSize: 24),
+                                               textColor: UIColor.blackPrimary,
+                                               numberOfLines: .zero)
+    
     //MARK: -> Life circle
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = HomePresenter(homeViewController: self)
         setViews()
         collectionViewRegister()
         view.hideKeyboard()
@@ -33,6 +42,8 @@ final class HomeViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        let item = UIBarButtonItem(customView: titleLabel)
+        navigationItem.leftBarButtonItem = item
     }
     
     private func collectionViewRegister() {
@@ -91,7 +102,7 @@ final class HomeViewController: UIViewController {
         section.contentInsets = .init(top: 20, leading: 16, bottom: 10, trailing: 16)
         
         if sectionKind == .categories {
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(180))
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(110))
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
             section.boundarySupplementaryItems = [header]
             
@@ -106,6 +117,7 @@ final class HomeViewController: UIViewController {
         }
         return section
     }
+    
 }
 //MARK: -> Extension
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
@@ -115,8 +127,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
       }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: Получение данных с бэка
-         20
+        switch section {
+        case 0: presenter.getCategoryArrayCount()
+        case 1: presenter.getArticleArrayCount()
+        default: 20
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -144,19 +159,28 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                                                                 for: indexPath) as? CategoriesCustomCell else {
                 return UICollectionViewCell()
             }
-            
-            // TODO: Получение данных с бэка
-            cell.configure(title: "Random")
+            let titleCategory = presenter.getCategory(at: indexPath)
+                cell.configure(titleCategory: titleCategory) { [weak self] text in
+                    if self?.dict[indexPath.row] == true {
+                        self?.dict[indexPath.row] = !(self?.dict[indexPath.row] ?? false)
+                     //   cell.isUserInteractionEnabled = true
+                    } else {
+                        self?.presenter.topHeadlinesTest(category: titleCategory)
+                        self?.dict[indexPath.row] = !(self?.dict[indexPath.row] ?? false)
+                   //     cell.isUserInteractionEnabled = false
+                    }
+                }
             return cell
+            
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCustomCell.reuseIdentifier,
                                                                 for: indexPath) as? PopularCustomCell else {
                 return UICollectionViewCell()
             }
-            
-            // TODO: Получение данных с бэка
-            cell.configure(imageName: "nnn", title: "POLITICS", text: "The latest situation in the presidential election")
+            let data = presenter.getArticle(at: indexPath)
+            cell.configure(imageURL: data.urlToImage ?? "", title: data.author ?? "", text:data.title ?? "", id: String(indexPath.row))
             return cell
+            
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedCustomCell.reuseIdentifier,
                                                                 for: indexPath) as? RecommendedCustomCell else {
@@ -167,5 +191,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.configure(model: RecommendedModel(imageName: "nnn", categoryName: "fhdkfj", titleText: "NNNNNNN"))
             return cell
         }
+    }
+}
+
+extension HomeViewController: HomeViewControllerProtocol {
+    func reloadCollectionView() {
+        self.collectionView.reloadSections(IndexSet(integer: 1))
     }
 }

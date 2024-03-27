@@ -15,6 +15,10 @@
 		5D41A2FD2BA9F72C00135E7D /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2FC2BA9F72C00135E7D /* CustomHeader.swift */; };
 		5D41A2FF2BAAB1A300135E7D /* RecommendedCustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A2FE2BAAB1A300135E7D /* RecommendedCustomHeader.swift */; };
 		5D41A3012BAAB99600135E7D /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D41A3002BAAB99600135E7D /* Section.swift */; };
+		5D7DA5422BB30B2B00998C94 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5412BB30B2B00998C94 /* Constants.swift */; };
+		5D7DA5452BB30B8E00998C94 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5442BB30B8E00998C94 /* Errors.swift */; };
+		5D7DA5472BB339B100998C94 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5462BB339B100998C94 /* UIImageView+Extension.swift */; };
+		5D7DA54A2BB33A0D00998C94 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5492BB33A0D00998C94 /* ImageCache.swift */; };
 		B695B1B52BA8654F00BE49CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B42BA8654F00BE49CA /* NetworkManager.swift */; };
 		B695B1B72BA865B800BE49CA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B62BA865B800BE49CA /* Endpoint.swift */; };
 		B695B1BA2BA879F100BE49CA /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695B1B92BA879F100BE49CA /* Structs.swift */; };
@@ -77,6 +81,10 @@
 		5D41A2FC2BA9F72C00135E7D /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		5D41A2FE2BAAB1A300135E7D /* RecommendedCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCustomHeader.swift; sourceTree = "<group>"; };
 		5D41A3002BAAB99600135E7D /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		5D7DA5412BB30B2B00998C94 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5D7DA5442BB30B8E00998C94 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		5D7DA5462BB339B100998C94 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		5D7DA5492BB33A0D00998C94 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		B695B1B42BA8654F00BE49CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B695B1B62BA865B800BE49CA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		B695B1B92BA879F100BE49CA /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
@@ -163,6 +171,23 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		5D7DA5432BB30B3600998C94 /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				5D7DA5412BB30B2B00998C94 /* Constants.swift */,
+				5D7DA5442BB30B8E00998C94 /* Errors.swift */,
+			);
+			path = Metrics;
+			sourceTree = "<group>";
+		};
+		5D7DA5482BB339F700998C94 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5D7DA5492BB33A0D00998C94 /* ImageCache.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F48366072BA741CE00751B4A = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +207,7 @@
 		F48366122BA741CE00751B4A /* NewsToday */ = {
 			isa = PBXGroup;
 			children = (
+				5D7DA5482BB339F700998C94 /* Helpers */,
 				F483662A2BA74AAE00751B4A /* Application */,
 				F4F78CA52BAC810400EB1569 /* Components */,
 				F483664E2BA7591F00751B4A /* Network */,
@@ -202,6 +228,7 @@
 				F483662B2BA74AEF00751B4A /* UIColor Extension.swift */,
 				F483662D2BA74C6C00751B4A /* UIFont Extension.swift */,
 				F48366402BA7523100751B4A /* UIView Extension.swift */,
+				5D7DA5462BB339B100998C94 /* UIImageView+Extension.swift */,
 				F48366422BA752AB00751B4A /* UIViewController Extension.swift */,
 				F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */,
 			);
@@ -267,6 +294,7 @@
 		F48366482BA7547000751B4A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5D7DA5432BB30B3600998C94 /* Metrics */,
 				F4F78CAC2BAC889100EB1569 /* Router */,
 				F48366512BA768C100751B4A /* Model */,
 				F48366522BA768C700751B4A /* View */,
@@ -609,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7DA54A2BB33A0D00998C94 /* ImageCache.swift in Sources */,
 				B695B1B52BA8654F00BE49CA /* NetworkManager.swift in Sources */,
 				5D41A2F62BA9EADF00135E7D /* PopularCustomCell.swift in Sources */,
 				F4F78CB92BAC8A9D00EB1569 /* MainTabbarController.swift in Sources */,
@@ -616,10 +645,12 @@
 				F48366182BA741CE00751B4A /* ViewController.swift in Sources */,
 				5174DD2F2BAAA58100D4A660 /* MyCollectionViewCell.swift in Sources */,
 				F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */,
+				5D7DA5422BB30B2B00998C94 /* Constants.swift in Sources */,
 				F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */,
 				F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */,
 				F48366672BA769F400751B4A /* CategoriesPresenter.swift in Sources */,
 				F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */,
+				5D7DA5472BB339B100998C94 /* UIImageView+Extension.swift in Sources */,
 				F483662E2BA74C6C00751B4A /* UIFont Extension.swift in Sources */,
 				F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */,
 				D094A2C32BAAD10500FFEB5E /* BookmarkCell.swift in Sources */,
@@ -632,6 +663,7 @@
 				D094A2C52BAB033E00FFEB5E /* EmptyView.swift in Sources */,
 				F48366712BA76AE300751B4A /* ProfileViewController.swift in Sources */,
 				F48366412BA7523100751B4A /* UIView Extension.swift in Sources */,
+				5D7DA5452BB30B8E00998C94 /* Errors.swift in Sources */,
 				F48366582BA768FA00751B4A /* HomeViewController.swift in Sources */,
 				F48366292BA749DA00751B4A /* UILabel Extension.swift in Sources */,
 				B695B1C02BAACC9E00BE49CA /* NetworkErrors.swift in Sources */,

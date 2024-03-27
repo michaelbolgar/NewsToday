@@ -62,7 +62,7 @@ final class RecommendedCustomCell: UICollectionViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Errors.fatalError)
     }
 
     //MARK: -> Functions
