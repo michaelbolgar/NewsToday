@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 //загрузка ViewController
-
+//
 //class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
 //    var window: UIWindow?
@@ -52,4 +52,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window.makeKeyAndVisible()
 //        self.window = window
 //    }
+//    
 //}
+
+
+
