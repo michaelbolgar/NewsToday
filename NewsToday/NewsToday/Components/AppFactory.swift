@@ -21,12 +21,14 @@ protocol AppFactory: AnyObject {
 
     func makeRootRouter(_ window: UIWindow?) -> RootRouter
     func makeTabBar(_ viewControllers: UIViewController...) -> UITabBarController
-
+    
+    func makeOnboardingViewController() -> UIViewController
     func makeHomeViewController() -> UIViewController
     func makeCategoriesViewController() -> UIViewController
     func makeBookmarksViewController() -> UIViewController
     func makeProfileViewController() -> UIViewController
 
+//    func makeOnboardingRouter() -> BaseRouter
     func makeHomeRouter() -> BaseRouter
     func makeCategoriesRouter() -> BaseRouter
     func makeBookmarksRouter() -> BaseRouter
@@ -46,6 +48,10 @@ final class Factory: AppFactory {
         return tabBar
     }
     
+    func makeOnboardingViewController() -> UIViewController {
+        OnboardingViewController()
+    }
+    
     func makeHomeViewController() -> UIViewController {
         HomeViewController()
     }
@@ -61,7 +67,14 @@ final class Factory: AppFactory {
     func makeProfileViewController() -> UIViewController {
         ProfileViewController()
     }
-    
+
+//    func makeOnboardingRouter() -> BaseRouter {
+//        let navController = UINavigationController()
+//        let router = OnboardingRouter(navigationController: navController, factory: self)
+//        router.start()
+//        return router
+//    }
+
     func makeHomeRouter() -> BaseRouter {
         let navController = UINavigationController()
         navController.configureTabBarItem("home")

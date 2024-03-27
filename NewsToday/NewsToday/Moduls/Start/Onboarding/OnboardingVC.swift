@@ -4,7 +4,7 @@ import SnapKit
 final class OnboardingViewController: UIViewController {
     
     // MARK: - Private&Static Properties
-
+    
     static let images = ["1.jpg", "2.jpg", "3.jpg"]
     
     private enum Const {
@@ -32,20 +32,22 @@ final class OnboardingViewController: UIViewController {
     }()
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(
-            frame: .zero, collectionViewLayout: self.collectionViewFlowLayout)
-        collectionView.isScrollEnabled = true
-        collectionView.showsHorizontalScrollIndicator = false // Отключение индикатора прокрутки по горизонтали.
-        collectionView.showsVerticalScrollIndicator = true
-        collectionView.clipsToBounds = true // Включение обрезки (clipping) содержимого коллекции по его границам.
-        collectionView.register(
-            myCollectionViewCell.self, forCellWithReuseIdentifier: "myCollectionViewCell") // Регистрация класса ячейки коллекции для повторного использования с указанным идентификатором.
-        collectionView.isPagingEnabled = false
-        //отделяет при скроле каждое фото отдельно или по одной полосой
-        collectionView.contentInsetAdjustmentBehavior = .never //Отключение автоматической настройки внутренних отступов содержимого коллекции. Это позволяет предотвратить автоматическое добавление отступов для учета безопасной зоны (safe area).
-        collectionView.contentInset = Const.collectionViewContentInset // Установка внутренних отступов содержимого коллекции с использованием заранее определенной константы collectionViewContentInset.
+        let collectionView = UICollectionView(frame: .zero,
+                                              collectionViewLayout: self.collectionViewFlowLayout)
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = Const.collectionViewContentInset
         collectionView.decelerationRate = .fast
-        collectionView.backgroundColor = .clear //.purpleLighter
+
+        collectionView.isScrollEnabled = true
+        collectionView.showsVerticalScrollIndicator = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.clipsToBounds = true
+        collectionView.isPagingEnabled = false
+        collectionView.contentInsetAdjustmentBehavior = .never
+
+        #warning("переписать идентификатор")
+        collectionView.register(myCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "myCollectionViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
         return collectionView
@@ -87,10 +89,8 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         layout()
         setupConstraints()
-        
     }
     
     // MARK: - Private Methods
@@ -103,7 +103,7 @@ final class OnboardingViewController: UIViewController {
 
         onboardingInfoLabel.textAlignment = .center
     }
-    
+
     @objc func pushButtonTapped(){
         
         let nextPage = min(pageControl.currentPage + 1, OnboardingViewController.images.count - 1)
@@ -118,6 +118,11 @@ final class OnboardingViewController: UIViewController {
             nextButton.setTitle("Get Started", for: .normal)
         default:
             break
+        }
+
+        if pageControl.currentPage == 2 {
+            #warning("добить функцию")
+            print ("open tabbar")
         }
     }
 }
@@ -197,20 +202,20 @@ extension OnboardingViewController {
 
 // MARK: - Preview Provider
 
-import SwiftUI
-
-struct StartViewProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().ignoresSafeArea()
-    }
-    
-    struct ContainerView: UIViewRepresentable {
-        func makeUIView(context: Context) -> UIView {
-            let viewController = OnboardingViewController()
-            return viewController.view
-        }
-        
-        func updateUIView(_ uiView: UIView, context: Context) { }
-    }
-}
-
+//import SwiftUI
+//
+//struct StartViewProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().ignoresSafeArea()
+//    }
+//    
+//    struct ContainerView: UIViewRepresentable {
+//        func makeUIView(context: Context) -> UIView {
+//            let viewController = OnboardingViewController()
+//            return viewController.view
+//        }
+//        
+//        func updateUIView(_ uiView: UIView, context: Context) { }
+//    }
+//}
+//
