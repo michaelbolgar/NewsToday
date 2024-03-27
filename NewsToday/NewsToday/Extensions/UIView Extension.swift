@@ -1,7 +1,9 @@
 import UIKit
 
 extension UIView {
+
     func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
+        self.addGestureRecognizer(tap)
     }
 }

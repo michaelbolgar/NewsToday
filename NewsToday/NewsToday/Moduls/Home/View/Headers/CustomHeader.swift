@@ -22,12 +22,8 @@ final class CustomHeaderView: UICollectionReusableView {
                                        textColor: UIColor.greyPrimary,
                                        numberOfLines: 0)
     
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search"
-        return searchBar
-    }()
-    
+    private let searchBar = SearchBarView()
+
     private lazy var verticalStack: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .firstBaseline
@@ -56,7 +52,7 @@ final class CustomHeaderView: UICollectionReusableView {
         
         searchBar.snp.makeConstraints {
             $0.height.equalTo(56)
-            $0.width.equalToSuperview().offset(-30)
+            $0.trailing.leading.equalToSuperview()
         }
         verticalStack.snp.makeConstraints {
             $0.edges.equalToSuperview()

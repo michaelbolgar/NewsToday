@@ -2,7 +2,7 @@ import UIKit
 
 extension UINavigationController {
     func configureTabBarItem(_ image: String) {
-        self.tabBarItem.image = UIImage(systemName: image)
+        self.tabBarItem.image = UIImage(named: image)
 
 //        self.tabBarItem.selectedImage = UIImage(named: selectedImage)
 
