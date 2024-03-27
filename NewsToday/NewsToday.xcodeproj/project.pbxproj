@@ -60,6 +60,10 @@
 		F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366802BA76C9000751B4A /* OnboardingVC.swift */; };
 		F48366832BA76CB700751B4A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48366822BA76CB700751B4A /* LoginVC.swift */; };
 		F4A5935B2BB1E2B100F923BB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5935A2BB1E2B100F923BB /* UserDefaultsManager.swift */; };
+		F4A593722BB47BB800F923BB /* SearchArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A593712BB47BB800F923BB /* SearchArticlesViewController.swift */; };
+		F4A593742BB47BCA00F923BB /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A593732BB47BCA00F923BB /* SearchCell.swift */; };
+		F4A593762BB47BE200F923BB /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A593752BB47BE200F923BB /* SearchPresenter.swift */; };
+		F4A593782BB47BF600F923BB /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A593772BB47BF600F923BB /* SearchModel.swift */; };
 		F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA62BAC816600EB1569 /* AppFactory.swift */; };
 		F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CA82BAC818500EB1569 /* RootRouter.swift */; };
 		F4F78CAB2BAC876700EB1569 /* UINavigationController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */; };
@@ -128,6 +132,10 @@
 		F48366802BA76C9000751B4A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		F48366822BA76CB700751B4A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F4A5935A2BB1E2B100F923BB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		F4A593712BB47BB800F923BB /* SearchArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticlesViewController.swift; sourceTree = "<group>"; };
+		F4A593732BB47BCA00F923BB /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		F4A593752BB47BE200F923BB /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		F4A593772BB47BF600F923BB /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		F4F78CA62BAC816600EB1569 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		F4F78CA82BAC818500EB1569 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		F4F78CAA2BAC876700EB1569 /* UINavigationController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController Extension.swift"; sourceTree = "<group>"; };
@@ -307,6 +315,7 @@
 		F48366492BA7548300751B4A /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				F4A5936D2BB47B8600F923BB /* Search */,
 				F48366472BA7546300751B4A /* Start */,
 				F4F78CBA2BAC8AA500EB1569 /* Tabbar */,
 				F48366482BA7547000751B4A /* Home */,
@@ -519,6 +528,41 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		F4A5936D2BB47B8600F923BB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F4A593702BB47B9700F923BB /* Presenter */,
+				F4A5936F2BB47B8F00F923BB /* View */,
+				F4A5936E2BB47B8C00F923BB /* Model */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F4A5936E2BB47B8C00F923BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4A593772BB47BF600F923BB /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4A5936F2BB47B8F00F923BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4A593712BB47BB800F923BB /* SearchArticlesViewController.swift */,
+				F4A593732BB47BCA00F923BB /* SearchCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4A593702BB47B9700F923BB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F4A593752BB47BE200F923BB /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		F4F78CA52BAC810400EB1569 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,11 +703,14 @@
 				B695B1B52BA8654F00BE49CA /* NetworkManager.swift in Sources */,
 				5D41A2F62BA9EADF00135E7D /* PopularCustomCell.swift in Sources */,
 				F4F78CB92BAC8A9D00EB1569 /* MainTabbarController.swift in Sources */,
+				F4A593782BB47BF600F923BB /* SearchModel.swift in Sources */,
 				F483666F2BA76AB500751B4A /* BookmarksViewController.swift in Sources */,
+				F4A593722BB47BB800F923BB /* SearchArticlesViewController.swift in Sources */,
 				F48366182BA741CE00751B4A /* ViewController.swift in Sources */,
 				5174DD2F2BAAA58100D4A660 /* MyCollectionViewCell.swift in Sources */,
 				F48366812BA76C9000751B4A /* OnboardingVC.swift in Sources */,
 				F48366652BA769DA00751B4A /* BookmarksPresenter.swift in Sources */,
+				F4A593742BB47BCA00F923BB /* SearchCell.swift in Sources */,
 				F4F78CA92BAC818500EB1569 /* RootRouter.swift in Sources */,
 				F48366672BA769F400751B4A /* CategoriesPresenter.swift in Sources */,
 				F483667F2BA76C3300751B4A /* DetailsModel.swift in Sources */,
@@ -671,6 +718,7 @@
 				F48366432BA752AB00751B4A /* UIViewController Extension.swift in Sources */,
 				D094A2C32BAAD10500FFEB5E /* BookmarkCell.swift in Sources */,
 				5D41A2FB2BA9F11F00135E7D /* RecommendedModel.swift in Sources */,
+				F4A593762BB47BE200F923BB /* SearchPresenter.swift in Sources */,
 				F483665A2BA7691000751B4A /* HomeModel.swift in Sources */,
 				B695B1B72BA865B800BE49CA /* Endpoint.swift in Sources */,
 				5D41A2F42BA9E79700135E7D /* CategoriesCustomCell.swift in Sources */,
