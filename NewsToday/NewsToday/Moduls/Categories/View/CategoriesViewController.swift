@@ -1,6 +1,8 @@
 import UIKit
 import SnapKit
 
+#warning("TODO: отрефакторить этот файл")
+
 protocol CategoriesViewControllerProtocol: AnyObject {
     
 }
