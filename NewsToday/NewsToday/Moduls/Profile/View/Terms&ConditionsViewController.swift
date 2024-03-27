@@ -72,7 +72,7 @@ extension TermsConditionsViewController{
         
         termsConditions.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(24)
-            make.left.leading.trailing.equalTo(view).inset(74)
+            make.left.leading.trailing.equalToSuperview().inset(74)
             make.height.equalTo(32)
         }
     }
