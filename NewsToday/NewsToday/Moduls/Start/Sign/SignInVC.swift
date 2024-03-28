@@ -28,7 +28,7 @@ final class SignInViewController: UIViewController, UITextFieldDelegate, UITextV
         font: UIFont.InterBold(ofSize: 15),
         imageSymbol: "lock")
     
-    #warning("проверить нужно ли это")
+    #warning("а не сделать ли через паддинг?")
     //контейнер для кнопки, чтобы сохранить отступы в textField
     private let symbolView: UIView = {
         let openCloseParol: UIButton = {

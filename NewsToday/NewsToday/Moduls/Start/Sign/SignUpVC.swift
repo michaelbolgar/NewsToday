@@ -16,7 +16,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate, UITextV
     
     private let hellotextLabel = UILabel.makeLabel(
         text: "Hello, I guess you are new around here. You can start using the application after sign up.",
-        font: UIFont.InterBold(ofSize: 15),
+        font: UIFont.InterRegular(ofSize: 15),
         textColor: UIColor.greyLight,
         numberOfLines: 0)
     
@@ -44,6 +44,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate, UITextV
         font: UIFont.InterBold(ofSize: 15),
         imageSymbol: "lock")
     
+    #warning("а не сделать ли через паддинг?")
     private let symbolView: UIView = {
         let openCloseParol: UIButton = {
             let element = UIButton(type: .custom)
@@ -61,6 +62,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate, UITextV
         return iconContainerView
     }()
     
+    #warning("а не сделать ли через паддинг?")
     private let symbolTwoView: UIView = {
         let openCloseParol: UIButton = {
             let element = UIButton(type: .custom)
@@ -104,6 +106,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate, UITextV
         super.viewDidLoad()
         setupView()
         setupCostraints()
+        view.hideKeyboard()
     }
     
     // MARK: - Private Methods
