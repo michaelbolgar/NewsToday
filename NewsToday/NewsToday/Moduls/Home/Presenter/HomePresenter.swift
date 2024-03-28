@@ -15,13 +15,13 @@ protocol HomePresenterProtocol {
 final class HomePresenter: HomePresenterProtocol {
 
     private unowned var view: HomeViewControllerProtocol
-//    private var router: HomeRouterProtocol
+    private var router: HomeRouterProtocol?
 
     var bookmarks: [Bookmarks] = []
 
-    init(view: HomeViewControllerProtocol) {
+    init(view: HomeViewControllerProtocol, router: HomeRouterProtocol?) {
         self.view = view
-//        self.router = router
+        self.router = router
     }
 
     var categoryArray = [
@@ -37,7 +37,7 @@ final class HomePresenter: HomePresenterProtocol {
     var articleArray = [Article(source: Source(id: "fewe", name: "vrf"), author: "vfdf", title: "fdfdf", description: "fdfdfdf", url: "fdfe", urlToImage: "fdfer", publishedAt: "fer", content: "fderer")]
 
     func showSearchVC() {
-//        router.showSearchVC()
+        router?.showSearchVC()
     }
 
     func showSeeAllVC() {

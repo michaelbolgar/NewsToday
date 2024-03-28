@@ -15,7 +15,8 @@ final class HomeModuleBuilder: HomeModuleBuilderProtocol {
 
     func createHomeModule(router: BaseRouter) -> UIViewController {
         let view = HomeViewController()
-        let presenter = HomePresenter(view: view as HomeViewControllerProtocol)
+//        let router = HomeRouterProtocol
+        let presenter = HomePresenter(view: view as HomeViewControllerProtocol, router: router as! any HomeRouterProtocol as HomeRouterProtocol)
         view.presenter = presenter
         return view
     }

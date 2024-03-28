@@ -47,7 +47,7 @@ final class HomeViewController: UIViewController {
     //MARK: -> Life circle
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = HomePresenter(view: self)
+        presenter = HomePresenter(view: self, router: nil)
         setViews()
         collectionViewRegister()
         view.hideKeyboard()
