@@ -4,7 +4,7 @@ import Foundation
 struct API {
     static let scheme = "https"
     static let host = "newsapi.org"
-    static let apiKey = Token.first
+    static let apiKey = Token.second
 }
 
 struct Token {
