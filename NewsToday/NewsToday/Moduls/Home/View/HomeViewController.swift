@@ -149,6 +149,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         case 1: presenter.getArticleArrayCount()
         default: 20
         }
+        return section
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

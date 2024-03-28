@@ -16,6 +16,7 @@ protocol UserDefaultsManagerProtocol {
 
 public enum Keys: String {
     case isLaunchedBefore = "isLaunchedBefore"
+    case selectedCategories = "selectedCategories"
 }
 
 final class UserDefaultsManager {
@@ -46,4 +47,8 @@ extension UserDefaultsManager: UserDefaultsManagerProtocol {
     func delete(forKey key: Keys) {
         userDefaults.removeObject(forKey: key.rawValue)
     }
+    
+    func getStringArray(forKey key: Keys) -> [String]? {
+         return userDefaults.stringArray(forKey: key.rawValue)
+     }
 }
