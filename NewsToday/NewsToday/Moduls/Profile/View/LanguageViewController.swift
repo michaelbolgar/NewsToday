@@ -24,11 +24,6 @@ final class LanguageViewController: UIViewController {
                                                       textColor: .blackPrimary,
                                                       numberOfLines: nil)
     
-    private let backButton: UIButton = {
-        let element = UIButton()
-        element.setImage(UIImage(named: "LeftIcon"), for: .normal)
-        return element
-    }()
     
     private let engLanguageButton: UIView = {
         let element = UIView()
@@ -80,7 +75,7 @@ final class LanguageViewController: UIViewController {
     
     //MARK: Private Methods
     private func setupViews() {
-        [engLanguage, engLanguageButton, rusLanguage, rusLanguageButton, checkSymbolE, checkSymbolR, languagePageTitle, backButton].forEach {view.addSubview($0)}
+        [ engLanguageButton, engLanguage, rusLanguageButton, rusLanguage, checkSymbolE, checkSymbolR, languagePageTitle].forEach {view.addSubview($0)}
     }
     
     private func setupConstraints() {
@@ -89,11 +84,6 @@ final class LanguageViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).inset(24)
             make.leading.trailing.equalToSuperview().inset(130)
             make.height.equalTo(32)
-        }
-        
-        backButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(28)
-            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         engLanguageButton.snp.makeConstraints { make in

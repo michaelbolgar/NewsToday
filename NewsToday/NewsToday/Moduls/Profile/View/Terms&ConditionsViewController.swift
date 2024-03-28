@@ -33,12 +33,6 @@ class TermsConditionsViewController: UIViewController {
         element.text = textForRules.termsConditionsText
         return element
     }()
-    
-    private let backButton: UIButton = {
-        let element = UIButton()
-        element.setImage(UIImage(named: "LeftIcon"), for: .normal)
-        return element
-    }()
 
     
     //MARK: - Lifecycle
@@ -49,7 +43,7 @@ class TermsConditionsViewController: UIViewController {
     }
     
     private func setupViews(){
-        [background, textRuleView, backButton, termsConditions].forEach {view.addSubview($0)}
+        [background, textRuleView, termsConditions].forEach {view.addSubview($0)}
     }
     
 }
@@ -63,11 +57,6 @@ extension TermsConditionsViewController{
         textRuleView.snp.makeConstraints {make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(76)
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-        
-        backButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(28)
-            make.left.equalTo(view).inset(20)
         }
         
         termsConditions.snp.makeConstraints { make in
