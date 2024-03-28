@@ -1,5 +1,7 @@
 import UIKit
 
+//TODO: привести к единому стилю
+
 extension UIButton {
     static func makeButton(text: String) -> UIButton {
         let button = UIButton(type: .system)
