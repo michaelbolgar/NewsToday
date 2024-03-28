@@ -28,7 +28,6 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
     }()
     private let contentImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "image")
        image.contentMode = .scaleAspectFill
         return image
     }()
@@ -76,32 +75,60 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
         setupConstraints()
         presenter.setDetailsViewControllerProtocol(detailsViewControllerProtocol: self)
         self.detailsPresenterProtocol = presenter
-        self.detailsPresenterProtocol?.getData(with: data)
+        
         configureController()
         setNavigationBar(title: "")
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.detailsPresenterProtocol?.getData(with: data)
     }
     // MARK: - Public Methods
     func setupData(with data: ([Article])) {
         self.data = data
 
     }
-
+    
     func displayData() {
-        categoryLabel.text = data.first?.source.name
-        headlineLabel.text = data.first?.title
-        authorLabel.text = data.first?.author
-        titleLabel.text = data.first?.title
-        contentTextView.text = data.first?.content
-
+        DispatchQueue.main.async {
+            let urlString = self.data.first?.urlToImage
+            let articleId = self.data.first?.source.id
+            self.contentImage.loadImage(withURL: urlString ?? "https://picsum.photos/200", id: articleId ?? "")
+            self.categoryLabel.text = self.data.first?.source.name
+            self.headlineLabel.text = self.data.first?.title
+            self.authorLabel.text = self.data.first?.author
+            self.titleLabel.text = self.data.first?.title
+            self.contentTextView.text = self.data.first?.content
+        }
     }
 
     @objc func bookmarkButtonTapped() {
+        guard let articleToSave = data.first else {
+                 // If there's no article data, there's nothing to save
+                 return
+             }
+        PersistenceManager.updateWith(favorite: articleToSave, actionType: .add) { [weak self] error in
+                   guard let self = self else { return }
+                   
+                   if let error = error as? PersistenceError, error == .alreadyInFavorites {
+                       // Handle the case where the article is already in favorites
+                       // You may want to display a message to the user
+                       print("Article is already in favorites")
+                   } else if let error = error {
+                       // Handle other errors, if any
+                       print("Error saving article: \(error)")
+                   } else {
+                       // Article successfully saved
+                       print("Article saved to favorites")
+                   }
+               }
 
     }
 
     @objc func shareButtonTapped() {
-        guard let textToShare = contentTextView.text else { return }
+        guard let textToShare = data.first?.url else { return }
         let activityViewController = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
     }
@@ -137,6 +164,7 @@ final class DetailsViewController: UIViewController, DetailsViewControllerProtoc
         contentImage.snp.makeConstraints { make in
           make.top.equalToSuperview()
           make.leading.trailing.equalToSuperview()
+          make.height.equalTo(384)
 
         }
         shareButton.snp.makeConstraints { make in

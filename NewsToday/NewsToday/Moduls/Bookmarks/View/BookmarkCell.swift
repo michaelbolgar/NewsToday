@@ -14,7 +14,6 @@ class BookmarkCell: UITableViewCell {
     private let bookmarkImage: UIImageView = {
     let image = UIImageView()
     image.layer.cornerRadius = 12
-     image.image = UIImage(systemName: "questionmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25))?.withTintColor(.black, renderingMode: .alwaysOriginal)
     return image
     }()
 
@@ -40,10 +39,12 @@ class BookmarkCell: UITableViewCell {
 
     //MARK: - Public Methods
 
-    func set(info: Bookmarks) {
-    //    bookmarkImage.image = info.bookmarkImage
-        categoryLabel.text = info.categoryLabel
-        mainLabel.text = info.textLabel
+    func set(info: Article) {
+        DispatchQueue.main.async {
+            self.bookmarkImage.loadImage(withURL: info.urlToImage ?? "https://picsum.photos/200", id: info.source.id ?? "")
+        }
+        categoryLabel.text = info.author
+        mainLabel.text = info.title
     }
 
     private func configure() {

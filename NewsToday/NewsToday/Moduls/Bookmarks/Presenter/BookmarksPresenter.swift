@@ -2,15 +2,16 @@ import UIKit
 
 protocol BookmarksPresenterProtocol {
     var bookmarkCount: Int { get }
-    func getBookmark(at index: Int) -> Bookmarks
+    func getBookmark(at index: Int) -> Article
     func viewDidLoad()
     func didEditingDelete(at indexPath: IndexPath)
+    func retrieveBookmarks()
 }
 
 final class BookmarksPresenter: BookmarksPresenterProtocol {
     weak private var bookmarksViewControllerProtocol: BookmarksViewControllerProtocol?
     
-    var bookmarks: [Bookmarks] = []
+    var bookmarks: [Article] = []
     
     init(bookmarksViewControllerProtocol: BookmarksViewControllerProtocol? = nil) {
         self.bookmarksViewControllerProtocol = bookmarksViewControllerProtocol
@@ -20,26 +21,32 @@ final class BookmarksPresenter: BookmarksPresenterProtocol {
         return bookmarks.count
     }
     
-    func getBookmark(at index: Int) -> Bookmarks {
+    func getBookmark(at index: Int) -> Article {
         return bookmarks[index]
     }
     
     
     func viewDidLoad() {
-        bookmarks = [Bookmarks(bookmarkImage: nil, 
-                               categoryLabel: "UI/UX Design",
-                               textLabel: "A Simple Trick For Creating Color Palettes Quickly"),
-                     
-                     Bookmarks(bookmarkImage: nil, 
-                               categoryLabel: "UI/UX Design",
-                               textLabel: "A Simple Trick For Creating Color Palettes Quickly")
-        ]
-        
         bookmarksViewControllerProtocol?.reloadTableView()
+        retrieveBookmarks()
     }
 
     func didEditingDelete(at indexPath: IndexPath) {
         bookmarks.remove(at: indexPath.row)
         bookmarksViewControllerProtocol?.reloadTableView()
     }
+    
+    func retrieveBookmarks() {
+         // Retrieve bookmarks from persistence manager
+         PersistenceManager.retrieveFavorites { [weak self] result in
+             guard let self = self else { return }
+             switch result {
+             case .success(let favorites):
+                 self.bookmarks = favorites
+                 self.bookmarksViewControllerProtocol?.reloadTableView()
+             case .failure(let error):
+                 print(error)
+             }
+         }
+     }
 }

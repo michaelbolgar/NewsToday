@@ -33,14 +33,34 @@ final class BookmarksViewController: UIViewController, BookmarksViewControllerPr
         presenter.viewDidLoad()
         configureTableView()
         setupViews()
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupConstraints()
-        emptyView.isHidden = true
+//        emptyView.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: true)
+   //     getFavorites()
     }
+    
+//    func getFavorites() {
+//        PersistenceManager.retrieveFavorites { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let favorites):
+//                self.presenter.bookmarks = favorites
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                    self.updateEmptyViewVisibility()
+//                    self.view.bringSubviewToFront(self.tableView) // just in case the empty view is on top of the table view
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+
     //MARK: - Public Methods
     
     func updateEmptyViewVisibility() {

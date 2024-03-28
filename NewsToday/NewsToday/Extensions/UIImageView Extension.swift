@@ -9,7 +9,6 @@ import UIKit
 
 extension UIImageView {
     func loadImage(withURL urlString: String, placeholder: UIImage? = nil, id: String) {
-
         guard let url = URL(string:  urlString) else {return}
         self.image = placeholder
 
@@ -35,4 +34,5 @@ extension UIImageView {
             }.resume()
         }
     }
+
 }

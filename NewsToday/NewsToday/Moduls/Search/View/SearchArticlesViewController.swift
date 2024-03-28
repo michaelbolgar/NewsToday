@@ -104,21 +104,6 @@ extension SearchArticlesViewController: UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let article = presenter.getArticles(at: indexPath.row)
-        guard let articleDescription = article.title else {
-            return UITableView.automaticDimension
-        }
-
-        let minimumHeight: CGFloat = 96
-
-        let boundingBox = NSString(string: articleDescription).boundingRect(with: CGSize(width: tableView.frame.width - 30, height: .greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)], context: nil)
-        // Return the calculated height if it's greater than the minimum height, otherwise return the minimum height
-        return max(boundingBox.height + 20, minimumHeight)
-    }
-
-
 }
 
 extension SearchArticlesViewController: SearchBarViewDelegate {

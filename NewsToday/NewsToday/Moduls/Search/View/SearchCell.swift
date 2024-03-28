@@ -13,9 +13,11 @@ class SearchCell: UITableViewCell {
     private let searchImage: UIImageView = {
     let image = UIImageView()
     image.layer.cornerRadius = 12
-    image.image = UIImage(systemName: "questionmark",
-                           withConfiguration: UIImage.SymbolConfiguration(pointSize: 25))?.withTintColor(.black, renderingMode: .alwaysOriginal)
     return image
+    }()
+    let backView: UIView = {
+        let view = UIView()
+        return view
     }()
 
      let categoryLabel = UILabel.makeLabel(font: UIFont.InterRegular(ofSize: 14),
@@ -41,33 +43,47 @@ class SearchCell: UITableViewCell {
     //MARK: - Public Methods
 
      func set(info: Article) {
-    //    searchImage.image = info.searchImage
+         DispatchQueue.main.async {
+             self.searchImage.loadImage(withURL: info.urlToImage ?? "https://picsum.photos/200", 
+                                        id: info.source.id ?? "")
+         }
+         
         categoryLabel.text = info.author
         mainLabel.text = info.title
     }
 
     private func configure() {
-        [searchImage, categoryLabel, mainLabel].forEach {addSubview($0) }
+        addSubview(backView)
+        [searchImage, categoryLabel, mainLabel].forEach {backView.addSubview($0) }
     }
 }
 
 
 extension SearchCell {
     func setupConstraints() {
+        backView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(5)
+            make.bottom.trailing.equalToSuperview().offset(-5)
+            make.height.equalTo(100)
+        }
+        
         searchImage.snp.makeConstraints { make in
             make.width.height.equalTo(96)
-            make.top.leading.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
 
         categoryLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview()
             make.leading.equalTo(searchImage.snp.trailing).offset(8)
+            make.trailing.equalToSuperview().offset(-8)
         }
 
         mainLabel.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).offset(8)
             make.leading.equalTo(searchImage.snp.trailing).offset(8)
             make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-5)
         }
     }
 }
