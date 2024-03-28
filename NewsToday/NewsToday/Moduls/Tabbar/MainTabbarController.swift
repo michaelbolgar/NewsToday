@@ -16,5 +16,12 @@ class MainTabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = .greyLight
         tabBar.standardAppearance = tabBarAppearance
         tabBar.scrollEdgeAppearance = tabBarAppearance
+
+        ///setting of tabbar border
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        tabBar.layer.cornerRadius = 12
+        tabBar.layer.borderColor = UIColor.greyLight.cgColor
+        tabBar.layer.borderWidth = 0.5
+        tabBar.clipsToBounds = true
     }
 }

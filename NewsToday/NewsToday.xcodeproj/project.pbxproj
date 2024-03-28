@@ -70,6 +70,9 @@
 		F4F78CB42BAC8A0300EB1569 /* BookmarksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CB32BAC8A0300EB1569 /* BookmarksRouter.swift */; };
 		F4F78CB72BAC8A1B00EB1569 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CB62BAC8A1B00EB1569 /* ProfileRouter.swift */; };
 		F4F78CB92BAC8A9D00EB1569 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CB82BAC8A9D00EB1569 /* MainTabbarController.swift */; };
+		F4F78CCA2BAE3F8A00EB1569 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CC92BAE3F8A00EB1569 /* SearchBarView.swift */; };
+		F4F78CCC2BAE3FC600EB1569 /* SearchBarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CCB2BAE3FC600EB1569 /* SearchBarViewDelegate.swift */; };
+		F4F78CCE2BAE3FE300EB1569 /* SearchBarView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78CCD2BAE3FE300EB1569 /* SearchBarView Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +140,9 @@
 		F4F78CB32BAC8A0300EB1569 /* BookmarksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRouter.swift; sourceTree = "<group>"; };
 		F4F78CB62BAC8A1B00EB1569 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		F4F78CB82BAC8A9D00EB1569 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		F4F78CC92BAE3F8A00EB1569 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		F4F78CCB2BAE3FC600EB1569 /* SearchBarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewDelegate.swift; sourceTree = "<group>"; };
+		F4F78CCD2BAE3FE300EB1569 /* SearchBarView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBarView Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +229,7 @@
 		F48366272BA749C000751B4A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F4F78CCD2BAE3FE300EB1569 /* SearchBarView Extension.swift */,
 				F48366282BA749DA00751B4A /* UILabel Extension.swift */,
 				F483662B2BA74AEF00751B4A /* UIColor Extension.swift */,
 				F483662D2BA74C6C00751B4A /* UIFont Extension.swift */,
@@ -386,10 +393,11 @@
 		F48366522BA768C700751B4A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F48366572BA768FA00751B4A /* HomeViewController.swift */,
-				5D41A3002BAAB99600135E7D /* Section.swift */,
+				F4F78CCF2BAE400C00EB1569 /* SearchBar */,
 				5D41A3022BAAB9B900135E7D /* Headers */,
 				5D41A2F92BA9EEBA00135E7D /* Cells */,
+				F48366572BA768FA00751B4A /* HomeViewController.swift */,
+				5D41A3002BAAB99600135E7D /* Section.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +574,15 @@
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
+		F4F78CCF2BAE400C00EB1569 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				F4F78CC92BAE3F8A00EB1569 /* SearchBarView.swift */,
+				F4F78CCB2BAE3FC600EB1569 /* SearchBarViewDelegate.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -680,6 +697,7 @@
 				F4F78CA72BAC816600EB1569 /* AppFactory.swift in Sources */,
 				F483662C2BA74AEF00751B4A /* UIColor Extension.swift in Sources */,
 				F48366142BA741CE00751B4A /* AppDelegate.swift in Sources */,
+				F4F78CCE2BAE3FE300EB1569 /* SearchBarView Extension.swift in Sources */,
 				F4F78CAE2BAC88A000EB1569 /* HomeRouter.swift in Sources */,
 				5174DD322BAEE92600D4A660 /* OnboardingRouter.swift in Sources */,
 				F4F78CAB2BAC876700EB1569 /* UINavigationController Extension.swift in Sources */,
@@ -689,10 +707,12 @@
 				F4A5935B2BB1E2B100F923BB /* UserDefaultsManager.swift in Sources */,
 				F48366502BA7593300751B4A /* API.swift in Sources */,
 				F48366162BA741CE00751B4A /* SceneDelegate.swift in Sources */,
+				F4F78CCC2BAE3FC600EB1569 /* SearchBarViewDelegate.swift in Sources */,
 				F48366752BA76BC000751B4A /* CategoriesModel.swift in Sources */,
 				5D41A2FD2BA9F72C00135E7D /* CustomHeader.swift in Sources */,
 				F483667C2BA76C0200751B4A /* ProfileModel.swift in Sources */,
 				F4F78CB42BAC8A0300EB1569 /* BookmarksRouter.swift in Sources */,
+				F4F78CCA2BAE3F8A00EB1569 /* SearchBarView.swift in Sources */,
 				F48366832BA76CB700751B4A /* LoginVC.swift in Sources */,
 				F48366792BA76BEB00751B4A /* BookmarksModel.swift in Sources */,
 				F48366612BA7699100751B4A /* DetailsPresenter.swift in Sources */,
