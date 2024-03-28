@@ -194,21 +194,21 @@ extension SignUpViewController {
 
     // MARK: - Preview Provider
 
-import SwiftUI
-
-struct StartViewProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().ignoresSafeArea()
-    }
-
-    struct ContainerView: UIViewRepresentable {
-        func makeUIView(context: Context) -> UIView {
-            let viewController = SignUpViewController()
-            return viewController.view
-        }
-
-        func updateUIView(_ uiView: UIView, context: Context) { }
-    }
-}
+//import SwiftUI
+//
+//struct StartViewProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().ignoresSafeArea()
+//    }
+//
+//    struct ContainerView: UIViewRepresentable {
+//        func makeUIView(context: Context) -> UIView {
+//            let viewController = SignUpViewController()
+//            return viewController.view
+//        }
+//
+//        func updateUIView(_ uiView: UIView, context: Context) { }
+//    }
+//}
 
 

@@ -12,7 +12,7 @@ final class SignInViewController: UIViewController, UITextFieldDelegate, UITextV
     
     private let hellotextLabel = UILabel.makeLabel(
         text: "I am happy to see you again. You can continue where you left off by logging in",
-        font: UIFont.InterBold(ofSize: 15),
+        font: UIFont.InterRegular(ofSize: 15),
         textColor: UIColor.greyLight,
         numberOfLines: 0)
     
@@ -28,6 +28,7 @@ final class SignInViewController: UIViewController, UITextFieldDelegate, UITextV
         font: UIFont.InterBold(ofSize: 15),
         imageSymbol: "lock")
     
+    #warning("проверить нужно ли это")
     //контейнер для кнопки, чтобы сохранить отступы в textField
     private let symbolView: UIView = {
         let openCloseParol: UIButton = {
@@ -47,6 +48,7 @@ final class SignInViewController: UIViewController, UITextFieldDelegate, UITextV
     
     private let signInUIButton = UIButton.makeButton(text: "Sign In")
     
+    #warning("заменить https://www.example.com")
     private let haveAccountTextView: UITextView = {
         let attributedString = NSMutableAttributedString(string: "Don`t have an account? Sign Up")
         attributedString.addAttribute(.link, value: "https://www.example.com", range: (attributedString.string as NSString).range(of: "Sign Up"))
@@ -71,6 +73,7 @@ final class SignInViewController: UIViewController, UITextFieldDelegate, UITextV
         super.viewDidLoad()
         setupView()
         setupCostraints()
+        view.hideKeyboard()
     }
     
     // MARK: - Private Methods
