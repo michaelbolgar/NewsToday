@@ -5,6 +5,8 @@ final class OnboardingViewController: UIViewController {
     
     // MARK: - Private&Static Properties
     
+    var onboardingRouter: OnboardingRouter?
+    
     static let images = ["1.jpg", "2.jpg", "3.jpg"]
     
     private enum Const {
@@ -19,7 +21,7 @@ final class OnboardingViewController: UIViewController {
             UIEdgeInsets(top: 0, left: Self.insetX, bottom: 0, right: Self.insetX)
         }
     }
-    
+
     // MARK: - UI Elements
   
     private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
@@ -105,7 +107,10 @@ final class OnboardingViewController: UIViewController {
     }
 
     @objc func pushButtonTapped(){
-        
+//        guard let onboardingRouter = onboardingRouter else {
+//               print("Onboarding router is nil")
+//               return
+//           }
         let nextPage = min(pageControl.currentPage + 1, OnboardingViewController.images.count - 1)
         let targetOffsetX = CGFloat(nextPage) * (Const.itemSize.width + Const.itemSpacing) - collectionView.contentInset.left
         collectionView.setContentOffset(CGPoint(x: targetOffsetX, y: 0), animated: true)
@@ -117,7 +122,7 @@ final class OnboardingViewController: UIViewController {
             onboardingLabel.text = "Save articles to your library"
             nextButton.setTitle("Get Started", for: .normal)
         default:
-            break
+            onboardingRouter?.start()
         }
 
         if pageControl.currentPage == 2 {
@@ -199,6 +204,11 @@ extension OnboardingViewController {
         }
     }
 }
+
+
+
+
+
 
 // MARK: - Preview Provider
 

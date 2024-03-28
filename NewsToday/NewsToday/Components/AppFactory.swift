@@ -28,7 +28,7 @@ protocol AppFactory: AnyObject {
     func makeBookmarksViewController() -> UIViewController
     func makeProfileViewController() -> UIViewController
 
-//    func makeOnboardingRouter() -> BaseRouter
+    func makeOnboardingRouter() -> BaseRouter
     func makeHomeRouter() -> BaseRouter
     func makeCategoriesRouter() -> BaseRouter
     func makeBookmarksRouter() -> BaseRouter
@@ -37,7 +37,7 @@ protocol AppFactory: AnyObject {
 }
 
 final class Factory: AppFactory {
-
+  
     func makeRootRouter(_ window: UIWindow?) -> RootRouter {
         RootRouter(window: window, factory: self)
     }
@@ -65,15 +65,15 @@ final class Factory: AppFactory {
     }
     
     func makeProfileViewController() -> UIViewController {
-        ProfileViewController()
+        SignInViewController()
     }
-
-//    func makeOnboardingRouter() -> BaseRouter {
-//        let navController = UINavigationController()
-//        let router = OnboardingRouter(navigationController: navController, factory: self)
-//        router.start()
-//        return router
-//    }
+    
+    func makeOnboardingRouter() -> BaseRouter {
+        let navController = UINavigationController()
+        let router = OnboardingRouter(navigationController: navController, factory: self)
+        router.start()
+        return router
+    }
 
     func makeHomeRouter() -> BaseRouter {
         let navController = UINavigationController()
