@@ -65,7 +65,7 @@ final class Factory: AppFactory {
     }
     
     func makeProfileViewController() -> UIViewController {
-        ProfileViewController()
+        SignInViewController()
     }
     
     func makeOnboardingRouter() -> BaseRouter {
